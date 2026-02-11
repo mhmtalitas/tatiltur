@@ -1337,7 +1337,7 @@ footer {
 
 .listing-container {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     padding-bottom: 60px;
 }
 
@@ -1615,6 +1615,31 @@ footer {
     .page-header h1 {
         font-size: 2rem;
     }
+
+    .listing-search-bar {
+        padding: 5px;
+    }
+
+    .search-input-group {
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .listing-search-bar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .v-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .btn-listing-search {
+        width: 100%;
+        margin-top: 10px;
+    }
 }
 
 /* Listing & Horizontal Cards (Professional Design) */
@@ -1661,7 +1686,7 @@ footer {
 }
 
 .tour-img-h {
-    width: 300px;
+    width: 280px;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
@@ -1751,7 +1776,7 @@ footer {
 }
 
 .tour-price-h {
-    width: 200px;
+    width: 180px;
     flex-shrink: 0;
     padding: 20px;
     display: flex;
@@ -1823,7 +1848,48 @@ footer {
 }
 
 /* Responsive Horizontal Card */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+    .tour-img-h {
+        width: 250px;
+    }
+
+    .tour-price-h {
+        width: 170px;
+    }
+
+    .tour-title-h {
+        font-size: 1.15rem;
+    }
+
+    .listing-container {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .tour-img-h {
+        width: 200px;
+    }
+
+    .tour-price-h {
+        width: 150px;
+    }
+
+    .tour-title-h {
+        font-size: 1.05rem;
+    }
+
+    .tour-features-h {
+        gap: 8px;
+    }
+
+    .tour-features-h span {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 992px) {
     .tour-card-horizontal {
         flex-direction: column;
         height: auto;
