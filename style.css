@@ -190,8 +190,8 @@ ul {
 /* Hero Section & Search Widget */
 .hero {
     height: 400px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-    background-position: center;
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-position: center bottom;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
