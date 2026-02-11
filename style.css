@@ -1108,15 +1108,17 @@ footer {
 
 /* Responsive */
 @media (max-width: 992px) {
-    .search-form {
+    .form-row {
         flex-wrap: wrap;
     }
 
     .form-group {
-        width: 48%;
-        /* 2 sütun */
-        flex: none;
-        margin-bottom: 15px;
+        flex: 1 1 45%;
+        margin-bottom: 0;
+    }
+
+    .form-group.location {
+        flex: 1 1 100%;
     }
 
     .search-btn {
@@ -1133,11 +1135,13 @@ footer {
 @media (max-width: 768px) {
     .form-row {
         flex-direction: column;
+        gap: 10px;
     }
 
     .popular-searches {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 10px;
     }
 
@@ -1233,7 +1237,7 @@ footer {
 
     .form-group {
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 0;
     }
 
     .search-btn {
