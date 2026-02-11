@@ -1218,7 +1218,7 @@ footer {
 
     .hero {
         height: auto;
-        padding: 100px 20px 60px;
+        padding: 40px 20px 60px;
         align-items: flex-start;
     }
 
@@ -1228,6 +1228,7 @@ footer {
 
     .search-tabs {
         justify-content: center;
+        padding-left: 0;
     }
 
     .search-form {
