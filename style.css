@@ -198,9 +198,24 @@ ul {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, #fff);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .search-widget {
+    position: relative;
+    z-index: 2;
     background: transparent;
     width: 100%;
     max-width: 1000px;
@@ -1108,6 +1123,11 @@ footer {
         width: 100%;
         margin-top: 10px;
     }
+
+    /* Testimonials Tablet */
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -1249,6 +1269,11 @@ footer {
         grid-row: span 1;
         height: 200px;
     }
+
+    /* Testimonials Mobile */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1267,10 +1292,7 @@ footer {
         height: 250px;
     }
 
-    /* Testimonials Mobile */
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
+
 }
 
 /* Tours Listing Page */
