@@ -39,35 +39,18 @@
             </div>
 
             <ul class="nav-links">
+                <li class="nav-item"><a href="index.html">ANA SAYFA</a></li>
                 <li class="nav-item">
-                    <a href="#">KONSEPT TURLAR <i class="fas fa-chevron-down"></i></a>
+                    <a href="tours.html">TÜM TURLAR <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="#">Kültür Turları</a></li>
-                        <li><a href="#">Balayı Turları</a></li>
-                        <li><a href="#">Günübirlik Turlar</a></li>
+                        <li><a href="tours.html?category=Macera">Macera & Safari</a></li>
+                        <li><a href="tours.html?category=Tekne">Tekne & Deniz</a></li>
+                        <li><a href="tours.html?category=Doğa">Doğa & Keşif</a></li>
+                        <li><a href="tours.html?category=Eğlence">Eğlence & Aktivite</a></li>
+                        <li><a href="tours.html?category=Kültür">Kültür & Aile</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#">YURT İÇİ TURLAR <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="#">Ege Akdeniz Turları</a></li>
-                        <li><a href="#">Doğu Anadolu Turları</a></li>
-                        <li><a href="#">Kapadokya Turları</a></li>
-                        <li><a href="#">Karadeniz Turları</a></li>
-                        <li><a href="#">Kayak Turları</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#">YURT DIŞI TURLAR <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="#">Amerika Turları</a></li>
-                        <li><a href="#">Avrupa Turları</a></li>
-                        <li><a href="#">Balkan Turları</a></li>
-                        <li><a href="#">İspanya Turları</a></li>
-                        <li><a href="#">Uzakdoğu Turları</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a href="#">KAMPANYALAR</a></li>
+                <li class="nav-item"><a href="#contact">İLETİŞİM</a></li>
             </ul>
         </div>
     </nav>
@@ -120,36 +103,37 @@
                         <input type="text" placeholder="Tur Ara...">
                     </div>
 
-                    <!-- Destinations Filter (Accordion) -->
+                    <!-- Category Filter -->
                     <div class="filter-group-modern active">
                         <div class="filter-title">
-                            <h4>Bölge</h4>
+                            <h4>Kategori</h4>
                             <i class="fas fa-chevron-up"></i>
                         </div>
                         <div class="filter-options">
                             <label class="custom-checkbox">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" name="category" value="Macera">
                                 <span class="checkmark"></span>
-                                <span class="label-text">Avrupa</span>
-                                <span class="count">(15)</span>
+                                <span class="label-text">Macera & Safari</span>
                             </label>
                             <label class="custom-checkbox">
-                                <input type="checkbox">
+                                <input type="checkbox" name="category" value="Tekne">
                                 <span class="checkmark"></span>
-                                <span class="label-text">Asya</span>
-                                <span class="count">(8)</span>
+                                <span class="label-text">Tekne & Deniz</span>
                             </label>
                             <label class="custom-checkbox">
-                                <input type="checkbox">
+                                <input type="checkbox" name="category" value="Doğa">
                                 <span class="checkmark"></span>
-                                <span class="label-text">Türkiye</span>
-                                <span class="count">(12)</span>
+                                <span class="label-text">Doğa & Keşif</span>
                             </label>
                             <label class="custom-checkbox">
-                                <input type="checkbox">
+                                <input type="checkbox" name="category" value="Eğlence">
                                 <span class="checkmark"></span>
-                                <span class="label-text">Amerika</span>
-                                <span class="count">(5)</span>
+                                <span class="label-text">Eğlence & Aktivite</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="category" value="Kültür">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Kültür & Aile</span>
                             </label>
                         </div>
                     </div>
@@ -226,120 +210,8 @@
                     </div>
                 </div>
 
-                <div class="tour-list-horizontal">
-                    <!-- Tur Kartı 1 (Horizontal) -->
-                    <div class="tour-card-horizontal">
-                        <div class="tour-img-h">
-                            <span class="tour-tag">Popüler</span>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                            <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80"
-                                alt="Venedik">
-                        </div>
-                        <div class="tour-info-h">
-                            <h3 class="tour-title-h">Büyük İtalya Turu</h3>
-                            <div class="tour-rating-h">
-                                <i class="fas fa-star"></i> 4.9 <span class="review-count">(128 Değerlendirme)</span>
-                            </div>
-                            <div class="tour-features-h">
-                                <span><i class="far fa-clock"></i> 7 Gece 8 Gün</span>
-                                <span><i class="fas fa-plane"></i> THY ile Uçuş</span>
-                                <span><i class="fas fa-hotel"></i> 4* Oteller</span>
-                            </div>
-                            <ul class="tour-highlights-list">
-                                <li>Roma, Floransa, Venedik, Milano Piarza</li>
-                                <li>Ekstra turlar dahil</li>
-                                <li>Türkçe rehberlik hizmeti</li>
-                            </ul>
-                        </div>
-                        <div class="tour-price-h">
-                            <div class="price-box-h">
-                                <span class="old-price-h">950 €</span>
-                                <span class="current-price-h">799 €</span>
-                                <span class="person-lbl">Kişi Başı</span>
-                            </div>
-                            <div class="action-box-h">
-                                <a href="tour-detail.html" class="btn-detail-h">İncele <i
-                                        class="fas fa-arrow-right"></i></a>
-                                <span class="deposit-info">Ön Ödeme: 100€</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tur Kartı 2 (Horizontal) -->
-                    <div class="tour-card-horizontal">
-                        <div class="tour-img-h">
-                            <span class="tour-tag warning">Fırsat</span>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                            <img src="https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                                alt="Kapadokya">
-                        </div>
-                        <div class="tour-info-h">
-                            <h3 class="tour-title-h">Kapadokya Masalı</h3>
-                            <div class="tour-rating-h">
-                                <i class="fas fa-star"></i> 4.8 <span class="review-count">(85 Değerlendirme)</span>
-                            </div>
-                            <div class="tour-features-h">
-                                <span><i class="far fa-clock"></i> 3 Gece 4 Gün</span>
-                                <span><i class="fas fa-bus"></i> Lüks Otobüs</span>
-                                <span><i class="fas fa-hotel"></i> Mağara Otel</span>
-                            </div>
-                            <ul class="tour-highlights-list">
-                                <li>Balon turu izleme imkanı</li>
-                                <li>Ihlara Vadisi, Göreme Açık Hava Müzesi</li>
-                                <li>Profesyonel rehberlik</li>
-                            </ul>
-                        </div>
-                        <div class="tour-price-h">
-                            <div class="price-box-h">
-                                <span class="old-price-h">5.000 TL</span>
-                                <span class="current-price-h">3.499 TL</span>
-                                <span class="person-lbl">Kişi Başı</span>
-                            </div>
-                            <div class="action-box-h">
-                                <a href="tour-detail.html" class="btn-detail-h">İncele <i
-                                        class="fas fa-arrow-right"></i></a>
-                                <span class="deposit-info">Ön Ödeme: 500 TL</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tur Kartı 3 (Horizontal) -->
-                    <div class="tour-card-horizontal">
-                        <div class="tour-img-h">
-                            <span class="tour-tag new">Yeni</span>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
-                                alt="Paris">
-                        </div>
-                        <div class="tour-info-h">
-                            <h3 class="tour-title-h">Paris & Benelüx</h3>
-                            <div class="tour-rating-h">
-                                <i class="fas fa-star"></i> 4.7 <span class="review-count">(42 Değerlendirme)</span>
-                            </div>
-                            <div class="tour-features-h">
-                                <span><i class="far fa-clock"></i> 5 Gece 6 Gün</span>
-                                <span><i class="fas fa-plane"></i> Pegasus ile Uçuş</span>
-                                <span><i class="fas fa-hotel"></i> Merkez Oteller</span>
-                            </div>
-                            <ul class="tour-highlights-list">
-                                <li>Eyfel Kulesi, Louvre Müzesi</li>
-                                <li>Amsterdam Kanal Turu</li>
-                                <li>Brüksel Şehir Gezisi</li>
-                            </ul>
-                        </div>
-                        <div class="tour-price-h">
-                            <div class="price-box-h">
-                                <span class="old-price-h">600 €</span>
-                                <span class="current-price-h">499 €</span>
-                                <span class="person-lbl">Kişi Başı</span>
-                            </div>
-                            <div class="action-box-h">
-                                <a href="tour-detail.html" class="btn-detail-h">İncele <i
-                                        class="fas fa-arrow-right"></i></a>
-                                <span class="deposit-info">Taksit İmkanı</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tour-list-horizontal" id="listing-tours-grid">
+                    <!-- Lists will be populated by JS -->
                 </div>
             </div>
         </div>
@@ -419,6 +291,129 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="tours-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('listing-tours-grid');
+            if (!grid || typeof toursData === 'undefined') return;
+
+            const urlParams = new URLSearchParams(window.location.search);
+            let activeCategory = urlParams.get('category'); // URL param
+
+            // Checkboxes
+            const categoryCheckboxes = document.querySelectorAll('input[name="category"]');
+
+            // Eğer URL'de kategori varsa checkbox'ı işaretle
+            if (activeCategory) {
+                categoryCheckboxes.forEach(cb => {
+                    if (cb.value === activeCategory) cb.checked = true;
+                });
+                updateTitle(activeCategory);
+            } else {
+                updateTitle();
+            }
+
+            // İlk render
+            renderTours();
+
+            // Checkbox event listener
+            categoryCheckboxes.forEach(cb => {
+                cb.addEventListener('change', () => {
+                    renderTours();
+                });
+            });
+
+            // "Temizle" butonu
+            const clearBtn = document.querySelector('.clear-filters');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    categoryCheckboxes.forEach(cb => cb.checked = false);
+                    renderTours();
+                    // URL'i temizle
+                    window.history.pushState({}, '', 'tours.html');
+                    updateTitle();
+                });
+            }
+
+            function updateTitle(cat) {
+                const titleEl = document.querySelector('.listing-page-title h1');
+                const breadcrumbEl = document.querySelector('.breadcrumb-clean span:last-child');
+                if (titleEl) {
+                    titleEl.innerText = cat ? `${cat} Turları` : `Tüm Turlar (${toursData.length})`;
+                }
+                if (breadcrumbEl) {
+                    breadcrumbEl.innerText = cat ? cat : 'Tüm Turlar';
+                }
+            }
+
+            function renderTours() {
+                // Seçili kategorileri al
+                const selectedCategories = Array.from(categoryCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                let filteredTours = toursData;
+
+                // Eğer kategori seçiliyse filtrele
+                if (selectedCategories.length > 0) {
+                    filteredTours = toursData.filter(tour => {
+                        // Tour kategorisi string olduğundan (örn: "Tekne & Deniz") includes kullanıyoruz
+                        return selectedCategories.some(cat => tour.category.includes(cat));
+                    });
+                }
+
+                grid.innerHTML = '';
+                if (filteredTours.length === 0) {
+                    grid.innerHTML = '<p style="text-align: center; font-size: 1.2rem; padding: 2rem;">Aradığınız kriterlere uygun tur bulunamadı.</p>';
+                    return;
+                }
+
+                filteredTours.forEach(tour => {
+                    const card = document.createElement('div');
+                    card.className = 'tour-card-horizontal';
+
+                    // Highlights listesinden ilk 3 maddeyi al
+                    const highlightsList = tour.highlights ? tour.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('') : '';
+
+                    card.innerHTML = `
+                        <div class="tour-img-h">
+                            <span class="tour-tag">${tour.highlights && tour.highlights.includes('Fırsat') ? 'Fırsat' : 'Popüler'}</span>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            <a href="tour-detail.html?id=${tour.id}">
+                                <img src="${tour.images[0]}" alt="${tour.title}">
+                            </a>
+                        </div>
+                        <div class="tour-info-h">
+                            <h3 class="tour-title-h"><a href="tour-detail.html?id=${tour.id}" style="color: inherit; text-decoration: none;">${tour.title}</a></h3>
+                            <div class="tour-rating-h">
+                                <i class="fas fa-star"></i> 4.9 <span class="review-count">(100+ Değerlendirme)</span>
+                            </div>
+                            <div class="tour-features-h">
+                                <span><i class="far fa-clock"></i> ${tour.duration}</span>
+                                <span><i class="fas fa-map-marker-alt"></i> ${tour.location || 'Alanya'}</span>
+                            </div>
+                            <ul class="tour-highlights-list">
+                                ${highlightsList}
+                            </ul>
+                        </div>
+                        <div class="tour-price-h">
+                            <div class="price-box-h">
+                                <span class="old-price-h">${Math.round(tour.price.adult * 1.2)} ${tour.price.currency}</span>
+                                <span class="current-price-h">${tour.price.adult} ${tour.price.currency}</span>
+                                <span class="person-lbl">Kişi Başı</span>
+                            </div>
+                            <div class="action-box-h">
+                                <a href="tour-detail.html?id=${tour.id}" class="btn-detail-h">İncele <i class="fas fa-arrow-right"></i></a>
+                                <span class="deposit-info">Ön Ödeme: %20</span>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
