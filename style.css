@@ -302,17 +302,34 @@ ul {
     font-size: 1.1rem;
 }
 
-.input-with-icon input,
-.input-with-icon select {
+.input-with-icon input {
     width: 100%;
     padding: 14px 15px 14px 45px;
-    /* İkon boşluğu */
     border: none;
     outline: none;
     background: transparent;
     font-size: 0.95rem;
     color: #333;
     font-family: inherit;
+}
+
+.input-with-icon select {
+    width: 100%;
+    padding: 14px 15px 14px 45px !important;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #333;
+    font-family: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    cursor: pointer;
 }
 
 .search-btn {
@@ -2494,13 +2511,13 @@ footer {
 
 .lightbox-btn {
     pointer-events: auto;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 60px;
-    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -2510,9 +2527,10 @@ footer {
 }
 
 .lightbox-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
     transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 
@@ -2717,4 +2735,256 @@ footer {
     font-weight: 700;
     font-size: 0.9rem;
     cursor: pointer;
+}
+
+/* ========================================================================== */
+/* NEW PROFESSIONAL TOUR DETAIL STYLES */
+/* ========================================================================== */
+
+/* Main Container Overrides */
+.detail-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    margin-bottom: 30px;
+}
+
+/* Tour Title */
+.tour-main-title {
+    font-size: 2.4rem;
+    /* Larger */
+    font-weight: 800;
+    /* Bolder */
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+/* Highlights Section */
+.tour-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.tour-highlights span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #555;
+    background: transparent;
+    /* Remove bubble background */
+    padding: 0;
+    /* Remove padding */
+    border: none;
+}
+
+.tour-highlights span i {
+    color: #e74c3c;
+    /* Red Checkmark */
+    font-size: 1rem;
+}
+
+/* Section Groups */
+.tour-section-group {
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Modern Left Border for Headings */
+.section-heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: #e74c3c;
+    /* Primary Color */
+    border-radius: 2px;
+}
+
+/* Description Text */
+.tour-description-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    text-align: justify;
+}
+
+/* Tour Details Grid */
+.tour-details-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.detail-block {
+    flex: 1;
+    min-width: 250px;
+}
+
+.detail-block .price-row,
+.detail-block .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+}
+
+.detail-block .info-row:last-child,
+.detail-block .price-row:last-child {
+    border-bottom: none;
+}
+
+.detail-block .label {
+    font-weight: 600;
+    color: #333;
+}
+
+.detail-block .value {
+    color: #666;
+    font-weight: 500;
+}
+
+/* Specific Style for Prices to Match Image (Plain list look) */
+.detail-block.prices .price-row {
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.detail-block.prices .value {
+    color: #222;
+    font-weight: 700;
+}
+
+
+/* Included / Excluded Columns */
+.inc-exc-section {
+    display: flex;
+    gap: 40px;
+    /* More spacing */
+    margin-top: 20px;
+}
+
+.list-column {
+    flex: 1;
+}
+
+.sub-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sub-heading.positive {
+    color: #2ecc71;
+}
+
+.sub-heading.negative {
+    color: #e74c3c;
+}
+
+.expert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expert-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.expert-list li i {
+    margin-top: 4px;
+    /* Align with text top */
+    flex-shrink: 0;
+}
+
+/* Icon Colors */
+.positive-list li i {
+    color: #2ecc71;
+}
+
+.negative-list li i {
+    color: #e74c3c;
+}
+
+/* Notes Box */
+.notes-box {
+    background: #f8f9fa;
+    /* Light Gray Background */
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.notes-box .sub-heading {
+    color: #333;
+    /* Dark Heading */
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.neutral-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.neutral-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #888;
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .tour-main-title {
+        font-size: 1.8rem;
+    }
+
+    .inc-exc-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .tour-details-grid {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
 }

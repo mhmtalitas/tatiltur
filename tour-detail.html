@@ -72,68 +72,78 @@
             <!-- Left Content -->
             <div class="detail-content">
                 <h1 class="tour-main-title" id="tour-title">Tur Adı Yükleniyor...</h1>
+
                 <div class="tour-highlights" id="tour-meta-tags">
-                    <!-- Meta tags will be populated by JS -->
+                    <!-- Javascript ile doldurulacak: ✓ Highlight 1  ✓ Highlight 2 -->
                 </div>
 
-                <div class="tour-section overview">
-                    <h2>Tur Hakkında</h2>
-                    <p id="tour-description">Detaylar yükleniyor...</p>
+                <div class="tour-section-group">
+                    <h2 class="section-heading">Tur Hakkında</h2>
+                    <p class="tour-description-text" id="tour-description">
+                        Detaylar yükleniyor...
+                    </p>
                 </div>
 
-                <!-- Program/Details Section -->
-                <div class="tour-section itinerary">
-                    <h2>Tur Detayları</h2>
-                    <!-- Pricing Table -->
-                    <div class="detail-table-row">
-                        <div class="detail-table-item">
-                            <span>Yetişkin</span>
-                            <span id="price-adult">0 ₺</span>
+                <div class="tour-section-group">
+                    <h2 class="section-heading">Tur Detayları</h2>
+
+                    <div class="tour-details-grid">
+                        <!-- Fiyat Bilgileri -->
+                        <div class="detail-block prices">
+                            <div class="price-row">
+                                <span class="label">Yetişkin</span>
+                                <span class="value" id="price-adult">...</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="label">Çocuk (7-12)</span>
+                                <span class="value" id="price-child">...</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="label">Bebek (0-6)</span>
+                                <span class="value" id="price-infant">Ücretsiz</span>
+                            </div>
                         </div>
-                        <div class="detail-table-item">
-                            <span>Çocuk (7-12)</span>
-                            <span id="price-child">0 ₺</span>
-                        </div>
-                        <div class="detail-table-item">
-                            <span>Bebek (0-6)</span>
-                            <span id="price-infant">Ücretsiz</span>
+
+                        <!-- Operasyonel Bilgiler -->
+                        <div class="detail-block info">
+                            <div class="info-row">
+                                <span class="label">Tur Süresi:</span>
+                                <span class="value" id="tour-duration">...</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Diller:</span>
+                                <span class="value">Türkçe, İngilizce</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Günler:</span>
+                                <span class="value" id="tour-days">...</span>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="detail-info-grid">
-                        <div class="info-row">
-                            <strong>Tur Süresi:</strong>
-                            <span id="tour-duration">00:00-00:00</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Diller:</strong>
-                            <span>Türkçe, İngilizce</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Günler:</strong>
-                            <span id="tour-days">-</span>
-                        </div>
+                <!-- Dahil / Hariç Bölümü -->
+                <div class="tour-section-group inc-exc-section">
+                    <div class="list-column included-col">
+                        <h3 class="sub-heading positive">
+                            <i class="fas fa-check-circle"></i> Ücrete Dahil
+                        </h3>
+                        <ul class="expert-list positive-list" id="tour-included"></ul>
                     </div>
-
-                    <!-- Included / Excluded -->
-                    <div class="inc-exc-container" style="display: flex; gap: 2rem; margin-top: 2rem;">
-                        <div class="inc-column" style="flex: 1;">
-                            <h3 style="color: #2ecc71; margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Ücrete
-                                Dahil</h3>
-                            <ul class="check-list" id="tour-included" style="list-style: none; padding: 0;"></ul>
-                        </div>
-                        <div class="exc-column" style="flex: 1;">
-                            <h3 style="color: #e74c3c; margin-bottom: 1rem;"><i class="fas fa-times-circle"></i> Ücrete
-                                Dahil Değil</h3>
-                            <ul class="cross-list" id="tour-excluded" style="list-style: none; padding: 0;"></ul>
-                        </div>
+                    <div class="list-column excluded-col">
+                        <h3 class="sub-heading negative">
+                            <i class="fas fa-times-circle"></i> Ücrete Dahil Değil
+                        </h3>
+                        <ul class="expert-list negative-list" id="tour-excluded"></ul>
                     </div>
+                </div>
 
-                    <!-- Notes -->
-                    <div class="notes-section"
-                        style="margin-top: 2rem; background: #f9f9f9; padding: 1.5rem; border-radius: 8px;">
-                        <h3 style="margin-bottom: 1rem;">Ek Bilgiler & Önemli Uyarılar</h3>
-                        <ul class="note-list" id="tour-notes" style="padding-left: 1.2rem;"></ul>
+                <!-- Notlar Bölümü -->
+                <!-- Notlar Bölümü -->
+                <div class="tour-section-group">
+                    <h3 class="section-heading">Ek Bilgiler & Önemli Uyarılar</h3>
+                    <div class="notes-box">
+                        <ul class="expert-list neutral-list" id="tour-notes"></ul>
                     </div>
                 </div>
             </div>

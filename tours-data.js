@@ -211,6 +211,36 @@ const toursData = [
         ]
     },
     {
+        id: "aquapark",
+        location: "Alanya",
+        title: "Aquapark",
+        category: "Eğlence & Aktivite",
+        price: { adult: 250, child: 200, infant: 0, currency: "₺" },
+        duration: "09:00-17:00",
+        days: ["Her Gün"],
+        description: "Otel havuzu sizin için küçükse, tüm ailenizi Eftelya Adasına muhteşem bir gün geçirmeye davet ediyoruz. Yetişkinler ve çocuklar için çeşitli havuzlar kaydıraklar ve animasyonların yanı sıra, su parkının plajda yer almasının avantajıyla deniz ve havuz keyfine varabilirsiniz.",
+        images: [
+            "assets/images/tours/aquapark/Alanya Aquapark 1.png",
+            "assets/images/tours/aquapark/Alanya Aquapark 1_restored_2.png",
+            "assets/images/tours/aquapark/Alanya Aquapark 2_restored_3.png",
+            "assets/images/tours/aquapark/Alanya Aquapark 3_restored_4.png",
+            "assets/images/tours/aquapark/Alanya Aquapark 5_restored_5.png",
+            "assets/images/tours/aquapark/Alanya Aquapark 6_restored_6.png",
+            "assets/images/tours/aquapark/Alanya Aquapark 7_restored_7.png",
+            "assets/images/tours/aquapark/Alanya Aquapark 8_restored_8.png"
+        ],
+        highlights: ["Eftelya Adası", "Su Parkı & Plaj", "Her Şey Dahil"],
+        included: ["Otel Transferi", "Şezlong", "Limitsiz Yerel Alkollü ve Alkolsüz İçecekler", "Yemek (Kebap, Pizza, Burger, Dondurma)"],
+        excluded: ["Sahilde Su Sporları"],
+        notes: [
+            "1 Mayıs - 31 Ekim arası her gün.",
+            "Yanınızda mayo, havlu, para, kamera, güneş gözlüğü, şapka ve güneş kremi getiriniz.",
+            "Misafirlerimiz bireysel kilitli dolaplara sahip olacaktır.",
+            "Yemekler ve içecekler, su parkının bütün restoranlarından temin edilebilir.",
+            "İçecekler (Alkollü : Bira ve şarap. Alkolsüz: Cola, fanta, sprite, tonik, su, çay, kahve)"
+        ]
+    },
+    {
         id: "quad-safari",
         location: "Alanya",
         title: "Quad Safari / Buggy Cross",
@@ -256,27 +286,7 @@ const toursData = [
             "0-6 Yaş Bebek: Ücretsiz"
         ]
     },
-    {
-        id: "aquapark",
-        location: "Alanya",
-        title: "Aquapark",
-        category: "Eğlence & Aktivite",
-        price: { adult: 250, child: 200, infant: 0, currency: "₺" },
-        duration: "09:00-17:00",
-        days: ["Her Gün"],
-        description: "Otel havuzu sizin için küçükse, tüm ailenizi Eftelya Adasına muhteşem bir gün geçirmeye davet ediyoruz. Yetişkinler ve çocuklar için çeşitli havuzlar kaydıraklar ve animasyonların yanı sıra, su parkının plajda yer almasının avantajıyla deniz ve havuz keyfine varabilirsiniz.",
-        images: ["https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"],
-        highlights: ["Eftelya Adası", "Su Parkı & Plaj", "Her Şey Dahil"],
-        included: ["Otel Transferi", "Şezlong", "Limitsiz Yerel Alkollü ve Alkolsüz İçecekler", "Yemek (Kebap, Pizza, Burger, Dondurma)"],
-        excluded: ["Sahilde Su Sporları"],
-        notes: [
-            "1 Mayıs - 31 Ekim arası her gün.",
-            "Yanınızda mayo, havlu, para, kamera, güneş gözlüğü, şapka ve güneş kremi getiriniz.",
-            "Misafirlerimiz bireysel kilitli dolaplara sahip olacaktır.",
-            "Yemekler ve içecekler, su parkının bütün restoranlarından temin edilebilir.",
-            "Çocuklar her zaman ebeveynlerinin yanında olmalıdır."
-        ]
-    },
+
     {
         id: "green-kanyon",
         location: "Manavgat",
