@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search-dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -178,17 +179,20 @@
                         </div>
 
                         <!-- Kişi Sayısı -->
-                        <div class="booking-input-group">
+                        <div class="booking-input-group" style="position: relative;">
                             <i class="fas fa-user-friends"></i>
-                            <select required name="pax">
-                                <option value="" disabled selected>Lütfen Kişi Sayısı Seçiniz</option>
-                                <option value="1">1 Yetişkin</option>
-                                <option value="2">2 Yetişkin</option>
-                                <option value="3">3 Yetişkin</option>
-                                <option value="4">4 Yetişkin</option>
-                                <option value="5">5 Yetişkin</option>
-                                <option value="6+">6+ Grup</option>
-                            </select>
+                            <input type="text" id="pax-input" name="pax" placeholder="Lütfen Kişi Sayısı Seçiniz"
+                                readonly required style="cursor: pointer; background: transparent;">
+                            <div class="search-dropdown" id="pax-dropdown">
+                                <ul>
+                                    <li data-value="1">1 Yetişkin</li>
+                                    <li data-value="2">2 Yetişkin</li>
+                                    <li data-value="3">3 Yetişkin</li>
+                                    <li data-value="4">4 Yetişkin</li>
+                                    <li data-value="5">5 Yetişkin</li>
+                                    <li data-value="6+">6+ Grup</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <!-- E-posta -->
@@ -432,7 +436,7 @@
 
                         const fullname = reservationForm.querySelector('input[name="fullname"]').value;
                         const date = reservationForm.querySelector('input[name="date"]').value;
-                        const pax = reservationForm.querySelector('select[name="pax"]').value;
+                        const pax = reservationForm.querySelector('input[name="pax"]').value;
                         const email = reservationForm.querySelector('input[name="email"]').value;
                         const phone = reservationForm.querySelector('input[name="phone"]').value;
                         const pickup = reservationForm.querySelector('input[name="pickup"]').value;

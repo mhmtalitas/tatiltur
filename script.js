@@ -118,6 +118,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Pax Dropdown Logic (Tour Detail Page)
+    const paxInput = document.getElementById('pax-input');
+    const paxDropdown = document.getElementById('pax-dropdown');
+
+    if (paxInput && paxDropdown) {
+        paxInput.addEventListener('click', () => {
+            paxDropdown.classList.add('active');
+        });
+
+        paxInput.addEventListener('focus', () => {
+            paxDropdown.classList.add('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!paxInput.contains(e.target) && !paxDropdown.contains(e.target)) {
+                paxDropdown.classList.remove('active');
+            }
+        });
+
+        const paxItems = paxDropdown.querySelectorAll('li');
+        paxItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const text = item.innerText;
+                paxInput.value = text;
+                paxDropdown.classList.remove('active');
+            });
+        });
+    }
+
     if (searchBtn) {
         searchBtn.addEventListener('click', (e) => {
             e.preventDefault();
