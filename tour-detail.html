@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="search-dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
@@ -174,8 +176,8 @@
                         <!-- Tarih -->
                         <div class="booking-input-group">
                             <i class="far fa-calendar-alt"></i>
-                            <input type="text" placeholder="Tur Tarihi" onfocus="(this.type='date')"
-                                onblur="(this.type='text')" required name="date" class="date-picker-modern">
+                            <input type="text" id="booking-date" placeholder="Tur Tarihi Seçiniz" required name="date"
+                                class="date-picker-modern">
                         </div>
 
                         <!-- Kişi Sayısı -->
@@ -547,6 +549,9 @@
 
 
     </script>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/tr.js"></script>
 </body>
 
 </html>

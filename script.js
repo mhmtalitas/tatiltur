@@ -61,6 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    if (document.getElementById("booking-date")) {
+        flatpickr("#booking-date", {
+            locale: "tr",
+            dateFormat: "d.m.Y",
+            minDate: "today",
+            disableMobile: "true"
+        });
+    }
+
     // Search Functionality
     const searchBtn = document.getElementById('search-btn');
 

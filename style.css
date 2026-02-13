@@ -2758,7 +2758,8 @@ footer {
     outline: none;
     padding: 10px 0;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 16px;
+    /* Prevent iOS/Mobile auto-zoom */
     color: #333;
     background: transparent;
 }
@@ -3291,7 +3292,8 @@ footer {
     border: 1px solid #ddd;
     border-radius: 6px;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 16px;
+    /* Prevent iOS auto-zoom */
     transition: var(--transition);
     background: #f9f9f9;
 }
