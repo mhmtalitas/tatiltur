@@ -127,18 +127,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Pax Dropdown Logic (Tour Detail Page)
+    // Pax Dropdown Logic (Tour Detail Page) - Improved Incremental Picker
     const paxInput = document.getElementById('pax-input');
     const paxDropdown = document.getElementById('pax-dropdown');
+    const paxConfirmBtn = document.getElementById('pax-confirm');
 
     if (paxInput && paxDropdown) {
-        paxInput.addEventListener('click', () => {
-            paxDropdown.classList.add('active');
+        let counts = { adult: 1, child: 0, baby: 0 };
+
+        const updatePaxDisplay = () => {
+            let parts = [];
+            if (counts.adult > 0) parts.push(`${counts.adult} Yetişkin`);
+            if (counts.child > 0) parts.push(`${counts.child} Çocuk`);
+            if (counts.baby > 0) parts.push(`${counts.baby} Bebek`);
+
+            paxInput.value = parts.join(', ');
+
+            // Sync with actual counts in dropdown
+            document.getElementById('count-adult').innerText = counts.adult;
+            document.getElementById('count-child').innerText = counts.child;
+            document.getElementById('count-baby').innerText = counts.baby;
+        };
+
+        paxInput.addEventListener('click', (e) => {
+            e.stopPropagation();
+            paxDropdown.classList.toggle('active');
         });
 
-        paxInput.addEventListener('focus', () => {
-            paxDropdown.classList.add('active');
+        paxDropdown.addEventListener('click', (e) => {
+            e.stopPropagation(); // Dropdown içi tıklamalarda kapanmasın
         });
+
+        const controlBtns = paxDropdown.querySelectorAll('.pax-btn');
+        controlBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.getAttribute('data-type');
+                const isPlus = btn.classList.contains('btn-plus');
+
+                if (isPlus) {
+                    counts[type]++;
+                } else if (counts[type] > 0) {
+                    // Adult can't be less than 1 if needed, but 0 is also fine for some cases
+                    if (type === 'adult' && counts[type] === 1) return;
+                    counts[type]--;
+                }
+                updatePaxDisplay();
+            });
+        });
+
+        if (paxConfirmBtn) {
+            paxConfirmBtn.addEventListener('click', () => {
+                paxDropdown.classList.remove('active');
+            });
+        }
 
         document.addEventListener('click', (e) => {
             if (!paxInput.contains(e.target) && !paxDropdown.contains(e.target)) {
@@ -146,14 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const paxItems = paxDropdown.querySelectorAll('li');
-        paxItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const text = item.innerText;
-                paxInput.value = text;
-                paxDropdown.classList.remove('active');
-            });
-        });
+        // Initial sync
+        updatePaxDisplay();
     }
 
     if (searchBtn) {

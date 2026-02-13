@@ -161,7 +161,7 @@
                     <div class="price-header">
                         <span class="label">Kişi Başı</span>
                         <div class="price">
-                            <span class="current" id="sidebar-price" style="color: #e74c3c; font-size: 2rem;">0 ₺</span>
+                            <span class="current" id="sidebar-price">0 ₺</span>
                         </div>
                     </div>
 
@@ -181,32 +181,60 @@
                         </div>
 
                         <!-- Kişi Sayısı -->
-                        <div class="booking-input-group" style="position: relative;">
+                        <div class="booking-input-group">
                             <i class="fas fa-user-friends"></i>
                             <input type="text" id="pax-input" name="pax" placeholder="Lütfen Kişi Sayısı Seçiniz"
                                 readonly required style="cursor: pointer; background: transparent;">
-                            <div class="search-dropdown" id="pax-dropdown">
-                                <ul>
-                                    <li data-value="1">1 Yetişkin</li>
-                                    <li data-value="2">2 Yetişkin</li>
-                                    <li data-value="3">3 Yetişkin</li>
-                                    <li data-value="4">4 Yetişkin</li>
-                                    <li data-value="5">5 Yetişkin</li>
-                                    <li data-value="6+">6+ Grup</li>
-                                </ul>
+                            <div class="search-dropdown pax-picker-dropdown" id="pax-dropdown">
+                                <div class="pax-picker-row">
+                                    <div class="pax-label">
+                                        <span class="pax-title">Yetişkin</span>
+                                        <span class="pax-desc">+13 Yaş</span>
+                                    </div>
+                                    <div class="pax-controls">
+                                        <button type="button" class="pax-btn btn-minus" data-type="adult">-</button>
+                                        <span class="pax-count" id="count-adult">1</span>
+                                        <button type="button" class="pax-btn btn-plus" data-type="adult">+</button>
+                                    </div>
+                                </div>
+                                <div class="pax-picker-row">
+                                    <div class="pax-label">
+                                        <span class="pax-title">Çocuk</span>
+                                        <span class="pax-desc">2-12 Yaş</span>
+                                    </div>
+                                    <div class="pax-controls">
+                                        <button type="button" class="pax-btn btn-minus" data-type="child">-</button>
+                                        <span class="pax-count" id="count-child">0</span>
+                                        <button type="button" class="pax-btn btn-plus" data-type="child">+</button>
+                                    </div>
+                                </div>
+                                <div class="pax-picker-row">
+                                    <div class="pax-label">
+                                        <span class="pax-title">Bebek</span>
+                                        <span class="pax-desc">0-2 Yaş</span>
+                                    </div>
+                                    <div class="pax-controls">
+                                        <button type="button" class="pax-btn btn-minus" data-type="baby">-</button>
+                                        <span class="pax-count" id="count-baby">0</span>
+                                        <button type="button" class="pax-btn btn-plus" data-type="baby">+</button>
+                                    </div>
+                                </div>
+                                <div class="pax-picker-footer">
+                                    <button type="button" class="btn-pax-confirm" id="pax-confirm">Tamam</button>
+                                </div>
                             </div>
                         </div>
 
                         <!-- E-posta -->
                         <div class="booking-input-group">
                             <i class="far fa-envelope"></i>
-                            <input type="email" placeholder="E-posta" required name="email">
+                            <input type="email" placeholder="E-posta Adresiniz" required name="email">
                         </div>
 
                         <!-- Telefon -->
                         <div class="booking-input-group">
                             <i class="fas fa-phone-alt"></i>
-                            <input type="tel" placeholder="Telefon" required name="phone">
+                            <input type="tel" placeholder="Telefon Numaranız" required name="phone">
                         </div>
 
                         <!-- Konaklama -->
@@ -218,26 +246,22 @@
                         <button type="submit" class="btn-reserve-modern">REZERVASYONU GÖNDER</button>
                     </form>
 
-                    <div class="trust-indicators"
-                        style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
-                        <div class="indicator"
-                            style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.85rem; color: #555;">
-                            <i class="fas fa-undo-alt" style="color: #2ecc71; width: 20px;"></i>
+                    <div class="trust-indicators">
+                        <div class="indicator">
+                            <i class="fas fa-undo-alt"></i>
                             <span>Son 24 saate kadar ücretsiz iptal</span>
                         </div>
-                        <div class="indicator"
-                            style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.85rem; color: #555;">
-                            <i class="fas fa-bolt" style="color: #f1c40f; width: 20px;"></i>
+                        <div class="indicator">
+                            <i class="fas fa-bolt"></i>
                             <span>Anında Onay</span>
                         </div>
-                        <div class="indicator"
-                            style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.85rem; color: #555;">
-                            <i class="fas fa-shield-alt" style="color: #3498db; width: 20px;"></i>
+                        <div class="indicator">
+                            <i class="fas fa-shield-alt"></i>
                             <span>Güvenli Rezervasyon</span>
                         </div>
                     </div>
 
-                    <p class="note" style="margin-top: 15px; text-align: center; font-size: 0.85rem; color: #888;">
+                    <p class="booking-note">
                         <i class="fas fa-info-circle"></i> Ödemeyi tur günü rehberimize yapabilirsiniz.
                     </p>
                 </div>
