@@ -656,11 +656,22 @@ ul {
 }
 
 /* Turkuaz */
-.tour-tag.hurry {
-    background: #5f27cd;
+.tour-tag.online {
+    background: var(--white);
+    color: #ff9f43;
+    border: 1px solid rgba(255, 159, 67, 0.4);
+    box-shadow: none;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    font-weight: 600;
 }
 
-/* Mor */
+.tour-tag.online i {
+    font-size: 0.8rem;
+}
 
 .wishlist-btn {
     position: absolute;
@@ -1508,45 +1519,41 @@ footer {
     flex: 1;
 }
 
-/* Professional Listing Header */
+/* Professional Listing Header - ETS Style */
 .listing-header-wrapper {
     background: #f8f9fa;
-    padding: 30px 0 20px 0;
-    border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 40px;
+    padding: 15px 0 0 0;
 }
 
 .listing-search-bar {
     display: flex;
     align-items: center;
     background: var(--white);
-    padding: 10px;
+    padding: 6px 6px 6px 15px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     border: 1px solid #e0e0e0;
 }
 
 .search-input-group {
     flex: 1;
-    position: relative;
-    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .search-input-group i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
+    color: #aaa;
     font-size: 1.1rem;
+    flex-shrink: 0;
 }
 
 .search-input-group input {
     width: 100%;
     border: none;
-    padding: 10px 10px 10px 35px;
-    font-size: 1rem;
+    padding: 12px 0;
+    font-size: 0.95rem;
     color: #333;
     background: transparent;
     font-weight: 500;
@@ -1558,43 +1565,57 @@ footer {
 
 .v-divider {
     width: 1px;
-    height: 40px;
+    height: 30px;
     background: #e0e0e0;
+    margin: 0 15px;
 }
 
 .btn-listing-search {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     background: var(--primary-color);
     color: var(--white);
     border: none;
     border-radius: 6px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .btn-listing-search:hover {
     background: var(--primary-dark);
 }
 
+.listing-section {
+    padding: 10px 0 60px;
+}
+
+.listing-page-title {
+    margin-bottom: 15px;
+}
+
 .listing-page-title h1 {
-    font-size: 1.8rem;
-    color: #222;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
 }
 
 .breadcrumb-clean {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: -8px;
+    position: relative;
+    z-index: 1;
 }
 
 .breadcrumb-clean a {
-    color: #888;
+    color: #aaa;
     text-decoration: none;
     transition: var(--transition);
 }
@@ -1604,20 +1625,18 @@ footer {
 }
 
 .separator {
-    margin: 0 8px;
-    color: #ccc;
-    font-size: 0.8rem;
+    margin: 0 4px;
+    color: #ddd;
+    font-size: 0.65rem;
 }
 
 .sorting-bar-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    background: var(--white);
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+    padding: 12px 0;
+    border-bottom: 1.5px solid #f2f2f2;
 }
 
 .dropdown-trigger {
@@ -1647,26 +1666,36 @@ footer {
 .sort-btn {
     background: none;
     border: none;
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    color: #666;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: #444;
     cursor: pointer;
     border-radius: 6px;
     transition: var(--transition);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    font-weight: 500;
 }
 
 .sort-btn:hover {
-    background: #f5f6fa;
-    color: #333;
+    background: #f0f0f0;
 }
 
 .sort-btn.active {
     color: var(--primary-color);
-    font-weight: 600;
-    background: rgba(227, 30, 36, 0.05);
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sort-btn i {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.sort-btn.active i {
+    opacity: 1;
 }
 
 .listing-content .tour-grid {
@@ -1676,6 +1705,7 @@ footer {
 
 
 /* Responsive Listing */
+/* Responsive Listing Improvements */
 @media (max-width: 992px) {
     .listing-container {
         flex-direction: column;
@@ -1683,39 +1713,50 @@ footer {
 
     .sidebar {
         width: 100%;
+        margin-bottom: 30px;
     }
 
-    .page-header {
-        height: 200px;
+    .listing-header-wrapper {
+        padding: 15px 0;
     }
 
-    .page-header h1 {
-        font-size: 2rem;
-    }
-
-    .listing-search-bar {
-        padding: 5px;
-    }
-
-    .search-input-group {
-        padding: 5px 10px;
+    .listing-page-title h1 {
+        font-size: 1.4rem;
     }
 }
 
 @media (max-width: 768px) {
     .listing-search-bar {
         flex-direction: column;
-        height: auto;
+        padding: 15px;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .search-input-group {
+        width: 100%;
     }
 
     .v-divider {
         width: 100%;
         height: 1px;
+        margin: 15px 0;
     }
 
     .btn-listing-search {
         width: 100%;
         margin-top: 10px;
+    }
+
+    .sorting-bar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .sort-toggles {
+        width: 100%;
+        justify-content: space-between;
     }
 }
 
@@ -1785,23 +1826,24 @@ footer {
 
 .tour-info-h {
     flex: 1;
-    padding: 20px;
+    padding: 15px 20px;
     border-right: 1px solid #f0f0f0;
     display: flex;
     flex-direction: column;
 }
 
 .tour-title-h {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
     color: #222;
+    font-weight: 700;
 }
 
 .tour-rating-h {
-    font-size: 0.9rem;
-    color: #f1c40f;
-    margin-bottom: 12px;
-    font-weight: 600;
+    font-size: 0.85rem;
+    color: #ff9f43;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .review-count {
@@ -1853,39 +1895,39 @@ footer {
 }
 
 .tour-price-h {
-    width: 180px;
+    width: 170px;
     flex-shrink: 0;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    background: #fafafa;
+    background: #fcfcfc;
 }
 
 .price-box-h {
     text-align: right;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .old-price-h {
     display: block;
     text-decoration: line-through;
-    color: #999;
-    font-size: 0.95rem;
+    color: #bbb;
+    font-size: 0.85rem;
 }
 
 .current-price-h {
     display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--primary-color);
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .person-lbl {
-    font-size: 0.8rem;
-    color: #777;
+    font-size: 0.75rem;
+    color: #999;
 }
 
 .action-box-h {

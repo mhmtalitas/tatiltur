@@ -79,14 +79,6 @@
                     <i class="fas fa-search"></i>
                 </button>
             </div>
-
-            <!-- Page Title & Breadcrumb -->
-            <div class="listing-page-title">
-                <h1>Yurt Dışı Turları için toplam 172 tur bulduk!</h1>
-                <div class="breadcrumb-clean">
-                    <a href="index.html">TatilTur</a> <span class="separator">></span> <span>Yurt Dışı Turları</span>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -202,17 +194,16 @@
 
             <!-- Tour List -->
             <div class="listing-content">
-                <!-- Sorting Bar -->
-                <!-- Professional Sort Bar -->
-                <div class="sorting-bar-nav">
-                    <div class="sort-dropdown">
-                        <button class="dropdown-trigger">Kalkış Noktaları <i class="fas fa-chevron-down"></i></button>
-                    </div>
-                    <div class="sort-toggles">
-                        <button class="sort-btn active"><i class="fas fa-calendar-alt"></i> Tarihe Göre</button>
-                        <button class="sort-btn"><i class="fas fa-sort-amount-down"></i> Fiyata Göre</button>
+                <!-- Page Title & Breadcrumb -->
+                <div class="listing-page-title">
+                    <h1>Yurt Dışı Turları için toplam 172 tur bulduk!</h1>
+                    <div class="breadcrumb-clean">
+                        <a href="index.html">TatilTur</a> <span class="separator">></span> <span>Yurt Dışı
+                            Turları</span>
                     </div>
                 </div>
+                <!-- Sorting Bar -->
+
 
                 <div class="tour-list-horizontal" id="listing-tours-grid">
                     <!-- Lists will be populated by JS -->
@@ -345,7 +336,7 @@
                 const titleEl = document.querySelector('.listing-page-title h1');
                 const breadcrumbEl = document.querySelector('.breadcrumb-clean span:last-child');
                 if (titleEl) {
-                    titleEl.innerText = cat ? `${cat} Turları` : `Tüm Turlar (${toursData.length})`;
+                    titleEl.innerText = cat ? `${cat} Turları için toplam ${filteredTours.length} tur bulduk!` : `Tatiliniz için toplam ${toursData.length} tur bulduk!`;
                 }
                 if (breadcrumbEl) {
                     breadcrumbEl.innerText = cat ? cat : 'Tüm Turlar';
