@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
+
+        // Icon değişim animasyonu
+        const icon = hamburger.querySelector('i');
+        if (hamburger.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     });
 
     // Mobile Dropdown Toggle
@@ -28,6 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         }
     });
 
