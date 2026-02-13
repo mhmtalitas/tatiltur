@@ -142,6 +142,28 @@ ul {
     border-bottom: 2px solid transparent;
 }
 
+.mobile-phone-link {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-phone-link {
+        display: block;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .mobile-phone-link a {
+        color: var(--primary-color) !important;
+        font-size: 1.2rem !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
 .nav-item:hover>a {
     color: var(--primary-color);
     border-bottom-color: var(--primary-color);
@@ -1177,25 +1199,30 @@ footer {
 
     .nav-links {
         position: fixed;
-        right: -100%;
+        left: 0;
         top: 70px;
         /* Navbar yüksekliği kadar */
         height: calc(100vh - 70px);
         flex-direction: column;
         background: var(--white);
-        width: 80%;
-        max-width: 300px;
-        text-align: left;
-        transition: 0.3s;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: none;
+        text-align: center;
+        transition: 0.3s ease-in-out;
+        box-shadow: none;
         z-index: 999;
-        padding: 20px;
-        gap: 0;
+        padding: 40px 20px;
+        gap: 20px;
         overflow-y: auto;
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
     }
 
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: all;
     }
 
     .nav-item {
@@ -2992,7 +3019,9 @@ footer {
         gap: 20px;
         padding: 20px;
     }
-}/* ========================
+}
+
+/* ========================
    Contact Page Styles
    ======================== */
 

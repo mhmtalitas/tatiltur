@@ -62,29 +62,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Search Functionality
     const searchBtn = document.getElementById('search-btn');
+
+    // Tour Search Logic
     const searchInput = document.getElementById('tour-search-input');
     const searchDropdown = document.getElementById('search-dropdown');
-    const dropdownItems = document.querySelectorAll('.search-dropdown li');
 
     if (searchInput && searchDropdown) {
-        // Show dropdown on focus
         searchInput.addEventListener('focus', () => {
             searchDropdown.classList.add('active');
         });
 
-        // Hide dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
                 searchDropdown.classList.remove('active');
             }
         });
 
-        // Handle item selection
-        dropdownItems.forEach(item => {
+        const tourItems = searchDropdown.querySelectorAll('li');
+        tourItems.forEach(item => {
             item.addEventListener('click', () => {
                 const value = item.getAttribute('data-value');
                 searchInput.value = value;
                 searchDropdown.classList.remove('active');
+            });
+        });
+    }
+
+    // Guest Dropdown Logic
+    const guestInput = document.getElementById('guest-input');
+    const guestDropdown = document.getElementById('guest-dropdown');
+
+    if (guestInput && guestDropdown) {
+        guestInput.addEventListener('click', () => {
+            guestDropdown.classList.add('active');
+        });
+
+        guestInput.addEventListener('focus', () => {
+            guestDropdown.classList.add('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!guestInput.contains(e.target) && !guestDropdown.contains(e.target)) {
+                guestDropdown.classList.remove('active');
+            }
+        });
+
+        const guestItems = guestDropdown.querySelectorAll('li');
+        guestItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const value = item.getAttribute('data-value');
+                guestInput.value = value;
+                guestDropdown.classList.remove('active');
             });
         });
     }
@@ -94,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const locationInput = document.getElementById('tour-search-input');
             const dateInput = document.getElementById('checkin-date');
-            const guestsSelect = document.querySelector('.form-group.guests select');
+            const guestInputEl = document.getElementById('guest-input');
 
             const params = new URLSearchParams();
 
@@ -106,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 params.append('date', dateInput.value.trim());
             }
 
-            if (guestsSelect) {
-                params.append('guests', guestsSelect.value);
+            if (guestInputEl && guestInputEl.value.trim() !== "") {
+                params.append('guests', guestInputEl.value.trim());
             }
 
             window.location.href = `tours.html?${params.toString()}`;
