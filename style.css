@@ -198,7 +198,8 @@ ul {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    /* Dropdown'ın taşabilmesi için */
 }
 
 .hero::after {
@@ -215,7 +216,8 @@ ul {
 
 .search-widget {
     position: relative;
-    z-index: 2;
+    z-index: 100;
+    /* Dropdown diğer sectionların üstüne çıksın */
     background: transparent;
     width: 100%;
     max-width: 1000px;
