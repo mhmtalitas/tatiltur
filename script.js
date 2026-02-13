@@ -49,4 +49,68 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Flatpickr Initialization
+    if (document.getElementById("checkin-date")) {
+        flatpickr("#checkin-date", {
+            locale: "tr",
+            dateFormat: "d.m.Y",
+            minDate: "today",
+            disableMobile: "true"
+        });
+    }
+
+    // Search Functionality
+    const searchBtn = document.getElementById('search-btn');
+    const searchInput = document.getElementById('tour-search-input');
+    const searchDropdown = document.getElementById('search-dropdown');
+    const dropdownItems = document.querySelectorAll('.search-dropdown li');
+
+    if (searchInput && searchDropdown) {
+        // Show dropdown on focus
+        searchInput.addEventListener('focus', () => {
+            searchDropdown.classList.add('active');
+        });
+
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
+                searchDropdown.classList.remove('active');
+            }
+        });
+
+        // Handle item selection
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const value = item.getAttribute('data-value');
+                searchInput.value = value;
+                searchDropdown.classList.remove('active');
+            });
+        });
+    }
+
+    if (searchBtn) {
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const locationInput = document.getElementById('tour-search-input');
+            const dateInput = document.getElementById('checkin-date');
+            const guestsSelect = document.querySelector('.form-group.guests select');
+
+            const params = new URLSearchParams();
+
+            if (locationInput && locationInput.value.trim() !== "") {
+                params.append('search', locationInput.value.trim());
+            }
+
+            if (dateInput && dateInput.value.trim() !== "") {
+                params.append('date', dateInput.value.trim());
+            }
+
+            if (guestsSelect) {
+                params.append('guests', guestsSelect.value);
+            }
+
+            window.location.href = `tours.html?${params.toString()}`;
+        });
+    }
 });

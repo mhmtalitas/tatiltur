@@ -8,7 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search-dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
@@ -66,18 +69,27 @@
                 <div class="search-form">
                     <div class="form-row">
                         <div class="form-group location">
-                            <label>Nereye Gitmek İstersin?</label>
-                            <div class="input-with-icon">
+                            <label>Hangi Tura Gidiyoruz?</label>
+                            <div class="input-with-icon" style="position: relative;">
                                 <i class="fas fa-search"></i>
-                                <input type="text" placeholder="Tur adı, bölge veya şehir ara...">
+                                <input type="text" id="tour-search-input" placeholder="Tur adı veya Şehir"
+                                    autocomplete="off">
+                                <div class="search-dropdown" id="search-dropdown">
+                                    <ul>
+                                        <li data-value="Macera & Safari">Macera & Safari</li>
+                                        <li data-value="Tekne & Deniz">Tekne & Deniz</li>
+                                        <li data-value="Doğa & Keşif">Doğa & Keşif</li>
+                                        <li data-value="Eğlence & Aktivite">Eğlence & Aktivite</li>
+                                        <li data-value="Kültür & Aile">Kültür & Aile</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group date">
                             <label>Giriş - Çıkış Tarihi</label>
                             <div class="input-with-icon">
                                 <i class="far fa-calendar-alt"></i>
-                                <input type="text" placeholder="Tarih Seçin" onfocus="(this.type='date')"
-                                    onblur="(this.type='text')">
+                                <input type="text" id="checkin-date" placeholder="Tarih Seçin">
                             </div>
                         </div>
                         <div class="form-group guests">
@@ -91,7 +103,7 @@
                                 </select>
                             </div>
                         </div>
-                        <a href="tours.html" class="search-btn"
+                        <a href="#" id="search-btn" class="search-btn"
                             style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
                             ARA <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
                         </a>
@@ -473,6 +485,9 @@
             }
         });
     </script>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/tr.js"></script>
 </body>
 
 </html>
