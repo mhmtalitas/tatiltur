@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - TatilTur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone-alt"></i> 444 0 444</span>
+                <span><i class="fas fa-headset"></i> Yardım & Destek</span>
+            </div>
+            <div class="user-actions">
+                <a href="#"><i class="fas fa-user"></i> Giriş Yap</a>
+                <a href="#" class="btn-signup">Kayıt Ol</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Tatil<span class="highlight">Tur</span>
+            </a>
+
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item"><a href="index.html">ANA SAYFA</a></li>
+                <li class="nav-item">
+                    <a href="tours.html">TÜM TURLAR <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="tours.html?category=Macera">Macera & Safari</a></li>
+                        <li><a href="tours.html?category=Tekne">Tekne & Deniz</a></li>
+                        <li><a href="tours.html?category=Doğa">Doğa & Keşif</a></li>
+                        <li><a href="tours.html?category=Eğlence">Eğlence & Aktivite</a></li>
+                        <li><a href="tours.html?category=Kültür">Kültür & Aile</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="contact.html">İLETİŞİM</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header contact-header"
+        style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+        <div class="header-overlay">
+            <h1>İletişim</h1>
+            <div class="breadcrumb">
+                <a href="index.html">TatilTur</a> <i class="fas fa-chevron-right"></i> <span>İletişim</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Info Box -->
+                <div class="contact-info-box">
+                    <h3>İletişim Bilgileri</h3>
+                    <p class="subtitle">Sorularınız ve önerileriniz için bize ulaşın.</p>
+
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Ofis Adresimiz</h4>
+                            <p>18. Sokak, Obagöl, 07400 Alanya</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Telefon</h4>
+                            <p>+90 531 707 9444</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>E-posta</h4>
+                            <p>info@metintour.com</p>
+                        </div>
+                    </div>
+
+                    <div class="social-connect">
+                        <h4>Bizi Takip Edin</h4>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-box">
+                    <h3>Bize Yazın</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Adınız Soyadınız</label>
+                                <input type="text" id="name" placeholder="Adınız Soyadınız" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-posta Adresiniz</label>
+                                <input type="email" id="email" placeholder="ornek@domain.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <input type="text" id="subject" placeholder="Mesajınızın konusu">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız</label>
+                            <textarea id="message" rows="5" placeholder="Mesajınızı buraya yazın..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">GÖNDER <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.8745266946654!2d32.03627231566861!3d36.54921997999814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14dca27c1076b91f%3A0x6b45070014072605!2sObag%C3%B6l%2C%2018.%20Sk.%2C%2007400%20Alanya%2FAntalya!5e0!3m2!1str!2str!4v1626356485923!5m2!1str!2str"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+
+    <!-- Professional Footer -->
+    <footer>
+        <div class="newsletter-section">
+            <div class="container newsletter-content">
+                <div class="newsletter-text">
+                    <h3><i class="far fa-envelope"></i> Fırsatlardan Haberdar Olun!</h3>
+                    <p>Kampanyalar ve indirimli turlar için bültenimize abone olun.</p>
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-posta adresinizi giriniz">
+                    <button>Kayıt Ol</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-col about">
+                        <h4>TatilTur Hakkında</h4>
+                        <p>Türkiyenin lider tur operatörü ile hayalinizdeki tatili planlayın. Yurt içi ve yurt dışı
+                            yüzlerce rota sizi bekliyor.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Kurumsal</h4>
+                        <ul>
+                            <li><a href="#">Hakkımızda</a></li>
+                            <li><a href="#">Kariyer</a></li>
+                            <li><a href="contact.html">İletişim</a></li>
+                            <li><a href="#">Şubelerimiz</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Yardım & Destek</h4>
+                        <ul>
+                            <li><a href="#">Nasıl Rezervasyon Yapılır?</a></li>
+                            <li><a href="#">Sıkça Sorulan Sorular</a></li>
+                            <li><a href="#">İptal ve İade Koşulları</a></li>
+                            <li><a href="#">KVKK Aydınlatma Metni</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Popüler Destinasyonlar</h4>
+                        <ul>
+                            <li><a href="#">Kapadokya Turları</a></li>
+                            <li><a href="#">Balkan Turları</a></li>
+                            <li><a href="#">İtalya Turları</a></li>
+                            <li><a href="#">Doğu Ekspresi</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fas fa-lock"></i> Güvenli Ödeme
+                    </div>
+                    <div class="copyright">
+                        &copy; 2026 TatilTur Turizm A.Ş. Tüm hakları saklıdır.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Update contact form behavior
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+
+</html>
