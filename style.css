@@ -2073,6 +2073,9 @@ footer {
     border: 2px solid #ddd;
     border-radius: 4px;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .custom-checkbox:hover input~.checkmark {
@@ -2086,8 +2089,8 @@ footer {
 
 .checkmark:after {
     content: "";
-    position: absolute;
     display: none;
+    position: relative;
 }
 
 .custom-checkbox input:checked~.checkmark:after {
@@ -2095,8 +2098,8 @@ footer {
 }
 
 .custom-checkbox .checkmark:after {
-    left: 6px;
-    top: 3px;
+    left: 0;
+    top: -1px;
     width: 5px;
     height: 10px;
     border: solid white;
