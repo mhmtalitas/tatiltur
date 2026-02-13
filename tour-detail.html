@@ -398,28 +398,40 @@
                 const gallery = document.getElementById('tour-gallery');
                 if (tour.images.length > 0) {
                     let galleryHTML = '';
-                    const maxVisible = 5; // En fazla 5 resim göster (1 büyük + 4 küçük)
+                    const maxVisible = 5; // En fazla 5 resim göster (Desktop)
 
                     for (let i = 0; i < tour.images.length; i++) {
-                        if (i >= maxVisible) break; // 5'ten fazlasını render etme (Lightbox'ta hepsi var)
+                        if (i >= maxVisible) break;
 
                         let className = 'gallery-item-modern small';
                         let overlayHTML = '';
+                        let badgeHTML = '';
 
-                        // İlk resim büyük (2x2)
+                        // İlk resim büyük
                         if (i === 0) {
                             className = 'gallery-item-modern large';
+                            // Toplam resim sayısını gösteren badge (Tüm görünümlerde ilk resimde)
+                            if (tour.images.length > 1) {
+                                badgeHTML = `<div class="photo-count-badge"><i class="fas fa-camera"></i> 1/${tour.images.length}</div>`;
+                            }
                         }
 
-                        // Son görünür resim (indeks 4) ve daha fazla resim varsa overlay ekle
+                        // Desktop için: 5. resimdeki overlay
                         if (i === maxVisible - 1 && tour.images.length > maxVisible) {
                             const remainingCount = tour.images.length - maxVisible;
-                            overlayHTML = `<div class="more-photos-overlay">+${remainingCount} Fotoğraf</div>`;
+                            overlayHTML = `<div class="more-photos-overlay desktop-only">+${remainingCount} Fotoğraf</div>`;
+                        }
+
+                        // Mobil için: 3. resimdeki overlay (Mobilde grid 3 resim gösteriyor)
+                        if (i === 2 && tour.images.length > 3) {
+                            const remainingCount = tour.images.length - 3;
+                            overlayHTML = `<div class="more-photos-overlay mobile-only">+${remainingCount}</div>`;
                         }
 
                         galleryHTML += `
                             <div class="${className}" onclick="openLightbox(${i})">
                                 <img src="${tour.images[i]}" alt="${tour.title}">
+                                ${badgeHTML}
                                 ${overlayHTML}
                             </div>
                         `;
