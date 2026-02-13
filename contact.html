@@ -59,91 +59,111 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <div class="page-header contact-header"
-        style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
-        <div class="header-overlay">
-            <h1>İletişim</h1>
-            <div class="breadcrumb">
-                <a href="index.html">TatilTur</a> <i class="fas fa-chevron-right"></i> <span>İletişim</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
+    <!-- Modern Contact Section -->
     <section class="contact-section">
         <div class="container">
             <div class="contact-wrapper">
                 <!-- Info Box -->
                 <div class="contact-info-box">
-                    <h3>İletişim Bilgileri</h3>
-                    <p class="subtitle">Sorularınız ve önerileriniz için bize ulaşın.</p>
-
-                    <div class="info-item">
-                        <div class="icon-box">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Ofis Adresimiz</h4>
-                            <p>18. Sokak, Obagöl, 07400 Alanya</p>
-                        </div>
+                    <div class="info-box-header">
+                        <h3>İletişim Bilgileri</h3>
+                        <p>Hızlı çözüm için bizi arayın veya ofisimize buyrun.</p>
                     </div>
 
-                    <div class="info-item">
-                        <div class="icon-box">
-                            <i class="fas fa-phone-alt"></i>
+                    <div class="info-items-list">
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="info-label">Telefon</span>
+                                <a href="tel:+905317079444" class="info-value">+90 531 707 9444</a>
+                                <p class="info-subtext">Hafta içi: 09:00 - 20:00</p>
+                            </div>
                         </div>
-                        <div class="info-content">
-                            <h4>Telefon</h4>
-                            <p>+90 531 707 9444</p>
-                        </div>
-                    </div>
 
-                    <div class="info-item">
-                        <div class="icon-box">
-                            <i class="far fa-envelope"></i>
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="info-label">E-posta</span>
+                                <a href="mailto:info@metintour.com" class="info-value">info@metintour.com</a>
+                                <p class="info-subtext">7/24 Mail Gönderebilirsiniz</p>
+                            </div>
                         </div>
-                        <div class="info-content">
-                            <h4>E-posta</h4>
-                            <p>info@metintour.com</p>
+
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <span class="info-label">Ofis</span>
+                                <span class="info-value">Obagöl, Alanya / Antalya</span>
+                                <p class="info-subtext">18. Sokak, No: 7/A</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="social-connect">
-                        <h4>Bizi Takip Edin</h4>
+                        <h4>Sosyal Medyada Biz</h4>
                         <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
                 <div class="contact-form-box">
-                    <h3>Bize Yazın</h3>
+                    <div class="form-header">
+                        <h3>Mesaj Bırakın</h3>
+                        <p>Size en kısa sürede geri dönüş yapacağız.</p>
+                    </div>
                     <form id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Adınız Soyadınız</label>
-                                <input type="text" id="name" placeholder="Adınız Soyadınız" required>
+                                <div class="input-with-icon">
+                                    <i class="far fa-user"></i>
+                                    <input type="text" id="name" placeholder="Örn: Ayşe Yılmaz" required>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="email">E-posta Adresiniz</label>
-                                <input type="email" id="email" placeholder="ornek@domain.com" required>
+                                <div class="input-with-icon">
+                                    <i class="far fa-envelope"></i>
+                                    <input type="email" id="email" placeholder="ornek@domain.com" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefon Numaranız</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <input type="tel" id="phone" placeholder="+90 --- --- -- --">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Konu</label>
+                                <div class="input-with-icon">
+                                    <i class="far fa-comment-alt"></i>
+                                    <input type="text" id="subject" placeholder="Neyle ilgili?">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Konu</label>
-                            <input type="text" id="subject" placeholder="Mesajınızın konusu">
-                        </div>
-                        <div class="form-group">
                             <label for="message">Mesajınız</label>
-                            <textarea id="message" rows="5" placeholder="Mesajınızı buraya yazın..."
+                            <textarea id="message" rows="5" placeholder="Sorunuzu veya talebinizi detaylandırın..."
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit">GÖNDER <i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="btn-submit-modern">
+                            <span>MESAJI GÖNDER</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
