@@ -67,7 +67,7 @@
             <div class="listing-search-bar">
                 <div class="search-input-group">
                     <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" value="Yurt Dışı Turları" placeholder="Nereye gitmek istersin?">
+                    <input type="text" value="Tüm Turlar" placeholder="Nereye gitmek istersin?">
                 </div>
                 <!-- Vertical Divider -->
                 <div class="v-divider"></div>
@@ -196,10 +196,10 @@
             <div class="listing-content">
                 <!-- Page Title & Breadcrumb -->
                 <div class="listing-page-title">
-                    <h1>Yurt Dışı Turları için toplam 172 tur bulduk!</h1>
+                    <h1>Turlar Yükleniyor...</h1>
                     <div class="breadcrumb-clean">
                         <a href="index.html">TatilTur</a> <span class="separator">></span> <span>Yurt Dışı
-                            Turları</span>
+                            Turlar</span>
                     </div>
                 </div>
                 <!-- Sorting Bar -->
@@ -295,18 +295,25 @@
 
             const urlParams = new URLSearchParams(window.location.search);
             let activeCategory = urlParams.get('category'); // URL param
+            let activeSearch = urlParams.get('search'); // Home page search param
 
             // Checkboxes
             const categoryCheckboxes = document.querySelectorAll('input[name="category"]');
+            const searchInputHeader = document.querySelector('.listing-search-bar .search-input-group input');
 
             // Eğer URL'de kategori varsa checkbox'ı işaretle
             if (activeCategory) {
                 categoryCheckboxes.forEach(cb => {
                     if (cb.value === activeCategory) cb.checked = true;
                 });
-                updateTitle(activeCategory);
-            } else {
-                updateTitle();
+            } else if (activeSearch) {
+                // Eğer search param geldiyse ve bir kategori ismiyse onu da işaretleyelim
+                categoryCheckboxes.forEach(cb => {
+                    const label = cb.parentElement.querySelector('.label-text').innerText;
+                    if (label.toLowerCase().includes(activeSearch.toLowerCase()) || activeSearch.toLowerCase().includes(cb.value.toLowerCase())) {
+                        cb.checked = true;
+                    }
+                });
             }
 
             // İlk render
@@ -328,19 +335,39 @@
                     renderTours();
                     // URL'i temizle
                     window.history.pushState({}, '', 'tours.html');
-                    updateTitle();
                 });
             }
 
-            function updateTitle(cat) {
+            function updateTitle(count, categories) {
                 const titleEl = document.querySelector('.listing-page-title h1');
                 const breadcrumbEl = document.querySelector('.breadcrumb-clean span:last-child');
+
+                let categoryText = "Tüm Turlar";
+                if (categories.length === 1) {
+                    // Sadece bir tane seçiliyse ismini yaz (Dropdown'daki karşılığını bulalım)
+                    const cb = Array.from(categoryCheckboxes).find(c => c.value === categories[0]);
+                    categoryText = cb ? cb.parentElement.querySelector('.label-text').innerText : categories[0];
+                } else if (categories.length > 1) {
+                    categoryText = "Seçili Kategoriler";
+                } else if (!activeCategory && activeSearch) {
+                    categoryText = activeSearch;
+                }
+
                 if (titleEl) {
-                    titleEl.innerText = cat ? `${cat} Turları için toplam ${filteredTours.length} tur bulduk!` : `Tatiliniz için toplam ${toursData.length} tur bulduk!`;
+                    titleEl.innerText = `Tatiliniz için toplam ${count} tur bulduk!`;
                 }
+
                 if (breadcrumbEl) {
-                    breadcrumbEl.innerText = cat ? cat : 'Tüm Turlar';
+                    breadcrumbEl.innerText = categoryText;
                 }
+
+                // Headerdaki inputu da güncelleyelim
+                if (searchInputHeader) {
+                    searchInputHeader.value = categoryText === "Tüm Turlar" ? "Tüm Turlar" : categoryText;
+                }
+
+                // Sayfa başlığını da güncelle
+                document.title = `${categoryText} - TatilTur`;
             }
 
             function renderTours() {
@@ -357,7 +384,17 @@
                         // Tour kategorisi string olduğundan (örn: "Tekne & Deniz") includes kullanıyoruz
                         return selectedCategories.some(cat => tour.category.includes(cat));
                     });
+                } else if (activeSearch) {
+                    // Eğer checkbox seçili değil ama linkle arama geldiyse (genel search)
+                    filteredTours = toursData.filter(tour =>
+                        tour.title.toLowerCase().includes(activeSearch.toLowerCase()) ||
+                        tour.category.toLowerCase().includes(activeSearch.toLowerCase()) ||
+                        tour.location.toLowerCase().includes(activeSearch.toLowerCase())
+                    );
                 }
+
+                // Başlığı güncelle
+                updateTitle(filteredTours.length, selectedCategories);
 
                 grid.innerHTML = '';
                 if (filteredTours.length === 0) {
