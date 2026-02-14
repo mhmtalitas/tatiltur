@@ -3786,6 +3786,24 @@ footer {
     background: #fff !important;
 }
 
+/* Remove year input arrows */
+.flatpickr-calendar .numInputWrapper span {
+    display: none !important;
+}
+
+.flatpickr-calendar input.numInput.cur-year {
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+.flatpickr-calendar input.numInput.cur-year::-webkit-outer-spin-button,
+.flatpickr-calendar input.numInput.cur-year::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
 .flatpickr-monthSelect-month.selected {
     background: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
