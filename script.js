@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     theme: "light"
                 })
             ],
-            disableMobile: "true"
+            disableMobile: true
         });
     }
 
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             locale: "tr",
             dateFormat: "d.m.Y",
             minDate: "today",
-            disableMobile: "true"
+            disableMobile: true
         });
     }
 

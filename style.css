@@ -3774,6 +3774,18 @@ footer {
 }
 
 /* Flatpickr Customization - Brand Red */
+.flatpickr-calendar {
+    background: #fff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid #eee !important;
+    z-index: 10001 !important;
+}
+
+.flatpickr-months,
+.flatpickr-monthSelect-months {
+    background: #fff !important;
+}
+
 .flatpickr-monthSelect-month.selected {
     background: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
