@@ -12,15 +12,13 @@
     --border-color: #E0E0E0;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     /* Daha yumuşak gölge */
-    --transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    --transition: all 0.3s ease;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: none;
-    /* Prevent any unintended global transitions */
 }
 
 body {
@@ -235,54 +233,6 @@ ul {
     color: var(--primary-color);
     border-left-color: var(--primary-color);
     padding-left: 25px;
-}
-
-/* Above the Fold (Hero + Campaigns) Layout */
-@media (min-width: 992px) {
-    .above-the-fold {
-        display: flex;
-        flex-direction: column;
-        /* Navbar sticky olduğu için viewporttan navbar boyunu çıkarıyoruz */
-        height: calc(100vh - 108px);
-        min-height: 700px;
-        overflow: hidden;
-        background: var(--white);
-    }
-
-    .hero {
-        flex: 1.3;
-        height: auto !important;
-        /* Önceki sabit 400px'i eziyoruz */
-        min-height: 350px;
-    }
-
-    .campaigns {
-        flex: 1;
-        padding: 20px 0 !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .campaigns .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-    }
-
-    .campaigns .section-title {
-        margin-bottom: 15px;
-    }
-
-    .campaign-slider {
-        padding: 5px 0;
-    }
-
-    .campaign-card-modern {
-        height: 320px;
-        /* Ekran yüksekliğine göre kartları biraz küçülttük */
-    }
 }
 
 /* Hero Section & Search Widget */
@@ -619,16 +569,81 @@ ul {
     margin: 0;
 }
 
+/* Intro Section Wrapper for Desktop 100vh Layout */
+@media (min-width: 1024px) {
+    .intro-section-wrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+    }
+
+    .hero {
+        flex: 1;
+        /* Hero section will take remaining space but we need enough for search widget */
+        min-height: 380px;
+        height: auto;
+    }
+
+    .campaigns {
+        flex: 1.1;
+        /* Campaigns area shared with hero */
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .campaigns .container {
+        width: 100%;
+    }
+
+    .section-title {
+        margin-bottom: 15px;
+    }
+
+    .campaign-slider {
+        padding: 10px 0;
+    }
+
+    .campaign-card-modern {
+        /* Height follows screen height to stay within viewport */
+        height: 38vh;
+        width: calc(38vh * 0.75);
+        max-height: 400px;
+        max-width: 300px;
+    }
+
+    /* Since we use dynamic widths for cards, the slider animation needs to be robust */
+    .slider-track {
+        --desktop-card-width: calc(38vh * 0.75);
+        --desktop-gap: 20px;
+        width: calc((var(--desktop-card-width) * 10) + (var(--desktop-gap) * 9));
+        gap: var(--desktop-gap);
+        animation: scroll-desktop 40s linear infinite;
+    }
+
+    @keyframes scroll-desktop {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-1 * (var(--desktop-card-width) * 5 + var(--desktop-gap) * 5)));
+        }
+    }
+}
+
 /* Popular Tours */
 .tours-section {
-    padding: 50px 0;
+    padding: 80px 0;
     background: var(--white);
 }
 
 .tour-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 25px;
+    gap: 30px;
     padding: 0 20px;
 }
 
@@ -638,7 +653,7 @@ ul {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: none;
     display: flex;
     flex-direction: column;
@@ -3756,4 +3771,45 @@ footer {
         grid-template-columns: 1fr;
         gap: 0;
     }
+}
+
+/* Flatpickr Customization - Brand Red */
+.flatpickr-monthSelect-month.selected {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+.flatpickr-monthSelect-month:hover,
+.flatpickr-monthSelect-month.selected:hover {
+    background: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+    color: #fff !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months:hover {
+    background: transparent !important;
+}
+
+/* General Flatpickr (Just in case) */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
 }

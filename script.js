@@ -55,8 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById("checkin-date")) {
         flatpickr("#checkin-date", {
             locale: "tr",
-            dateFormat: "d.m.Y",
-            minDate: "today",
+            plugins: [
+                new monthSelectPlugin({
+                    shorthand: false, // "Ocak 2026" full names
+                    dateFormat: "F Y",
+                    altFormat: "F Y",
+                    theme: "light"
+                })
+            ],
             disableMobile: "true"
         });
     }
@@ -98,15 +104,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Reusable Pax Picker Function
-    function initPaxPicker(inputId, dropdownId, confirmBtnId, countIds) {
+    // Generic Pax/Guest Picker Logic
+    const setupPaxPicker = (inputId, dropdownId, confirmId, countIdPrefix) => {
         const input = document.getElementById(inputId);
         const dropdown = document.getElementById(dropdownId);
-        const confirmBtn = document.getElementById(confirmBtnId);
+        const confirmBtn = document.getElementById(confirmId);
 
         if (!input || !dropdown) return;
 
-        let counts = { adult: 1, child: 0, baby: 0 };
+        let counts = { adult: input.value.includes('2 Yetişkin') ? 2 : 1, child: 0, baby: 0 };
+
+        // Initial parse if input has value
+        if (input.value && input.value !== "2 Yetişkin") {
+            const parts = input.value.split(', ');
+            parts.forEach(p => {
+                if (p.includes('Yetişkin')) counts.adult = parseInt(p) || 1;
+                if (p.includes('Çocuk')) counts.child = parseInt(p) || 0;
+                if (p.includes('Bebek')) counts.baby = parseInt(p) || 0;
+            });
+        }
 
         const updateDisplay = () => {
             let parts = [];
@@ -116,10 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             input.value = parts.join(', ');
 
-            // Sync with elements
-            if (countIds.adult) document.getElementById(countIds.adult).innerText = counts.adult;
-            if (countIds.child) document.getElementById(countIds.child).innerText = counts.child;
-            if (countIds.baby) document.getElementById(countIds.baby).innerText = counts.baby;
+            // Update internal counts in dropdown
+            const adultEl = document.getElementById(`${countIdPrefix}-adult`);
+            const childEl = document.getElementById(`${countIdPrefix}-child`);
+            const babyEl = document.getElementById(`${countIdPrefix}-baby`);
+
+            if (adultEl) adultEl.innerText = counts.adult;
+            if (childEl) childEl.innerText = counts.child;
+            if (babyEl) babyEl.innerText = counts.baby;
         };
 
         input.addEventListener('click', (e) => {
@@ -160,21 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         updateDisplay();
-    }
+    };
 
-    // Home Page Guest Picker
-    initPaxPicker('guest-input', 'guest-dropdown', 'guest-pax-confirm', {
-        adult: 'guest-count-adult',
-        child: 'guest-count-child',
-        baby: 'guest-count-baby'
-    });
-
-    // Tour Detail Page Pax Picker
-    initPaxPicker('pax-input', 'pax-dropdown', 'pax-confirm', {
-        adult: 'count-adult',
-        child: 'count-child',
-        baby: 'count-baby'
-    });
+    // Initialize both pickers
+    setupPaxPicker('guest-input', 'guest-dropdown', 'guest-confirm', 'guest-count');
+    setupPaxPicker('pax-input', 'pax-dropdown', 'pax-confirm', 'count');
 
     if (searchBtn) {
         searchBtn.addEventListener('click', (e) => {
