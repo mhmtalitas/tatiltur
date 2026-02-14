@@ -98,67 +98,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Guest Dropdown Logic
-    const guestInput = document.getElementById('guest-input');
-    const guestDropdown = document.getElementById('guest-dropdown');
+    // Reusable Pax Picker Function
+    function initPaxPicker(inputId, dropdownId, confirmBtnId, countIds) {
+        const input = document.getElementById(inputId);
+        const dropdown = document.getElementById(dropdownId);
+        const confirmBtn = document.getElementById(confirmBtnId);
 
-    if (guestInput && guestDropdown) {
-        guestInput.addEventListener('click', () => {
-            guestDropdown.classList.add('active');
-        });
+        if (!input || !dropdown) return;
 
-        guestInput.addEventListener('focus', () => {
-            guestDropdown.classList.add('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!guestInput.contains(e.target) && !guestDropdown.contains(e.target)) {
-                guestDropdown.classList.remove('active');
-            }
-        });
-
-        const guestItems = guestDropdown.querySelectorAll('li');
-        guestItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const value = item.getAttribute('data-value');
-                guestInput.value = value;
-                guestDropdown.classList.remove('active');
-            });
-        });
-    }
-
-    // Pax Dropdown Logic (Tour Detail Page) - Improved Incremental Picker
-    const paxInput = document.getElementById('pax-input');
-    const paxDropdown = document.getElementById('pax-dropdown');
-    const paxConfirmBtn = document.getElementById('pax-confirm');
-
-    if (paxInput && paxDropdown) {
         let counts = { adult: 1, child: 0, baby: 0 };
 
-        const updatePaxDisplay = () => {
+        const updateDisplay = () => {
             let parts = [];
             if (counts.adult > 0) parts.push(`${counts.adult} Yetişkin`);
             if (counts.child > 0) parts.push(`${counts.child} Çocuk`);
             if (counts.baby > 0) parts.push(`${counts.baby} Bebek`);
 
-            paxInput.value = parts.join(', ');
+            input.value = parts.join(', ');
 
-            // Sync with actual counts in dropdown
-            document.getElementById('count-adult').innerText = counts.adult;
-            document.getElementById('count-child').innerText = counts.child;
-            document.getElementById('count-baby').innerText = counts.baby;
+            // Sync with elements
+            if (countIds.adult) document.getElementById(countIds.adult).innerText = counts.adult;
+            if (countIds.child) document.getElementById(countIds.child).innerText = counts.child;
+            if (countIds.baby) document.getElementById(countIds.baby).innerText = counts.baby;
         };
 
-        paxInput.addEventListener('click', (e) => {
+        input.addEventListener('click', (e) => {
             e.stopPropagation();
-            paxDropdown.classList.toggle('active');
+            dropdown.classList.toggle('active');
         });
 
-        paxDropdown.addEventListener('click', (e) => {
-            e.stopPropagation(); // Dropdown içi tıklamalarda kapanmasın
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
 
-        const controlBtns = paxDropdown.querySelectorAll('.pax-btn');
+        const controlBtns = dropdown.querySelectorAll('.pax-btn');
         controlBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const type = btn.getAttribute('data-type');
@@ -167,29 +140,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isPlus) {
                     counts[type]++;
                 } else if (counts[type] > 0) {
-                    // Adult can't be less than 1 if needed, but 0 is also fine for some cases
                     if (type === 'adult' && counts[type] === 1) return;
                     counts[type]--;
                 }
-                updatePaxDisplay();
+                updateDisplay();
             });
         });
 
-        if (paxConfirmBtn) {
-            paxConfirmBtn.addEventListener('click', () => {
-                paxDropdown.classList.remove('active');
+        if (confirmBtn) {
+            confirmBtn.addEventListener('click', () => {
+                dropdown.classList.remove('active');
             });
         }
 
         document.addEventListener('click', (e) => {
-            if (!paxInput.contains(e.target) && !paxDropdown.contains(e.target)) {
-                paxDropdown.classList.remove('active');
+            if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
             }
         });
 
-        // Initial sync
-        updatePaxDisplay();
+        updateDisplay();
     }
+
+    // Home Page Guest Picker
+    initPaxPicker('guest-input', 'guest-dropdown', 'guest-pax-confirm', {
+        adult: 'guest-count-adult',
+        child: 'guest-count-child',
+        baby: 'guest-count-baby'
+    });
+
+    // Tour Detail Page Pax Picker
+    initPaxPicker('pax-input', 'pax-dropdown', 'pax-confirm', {
+        adult: 'count-adult',
+        child: 'count-child',
+        baby: 'count-baby'
+    });
 
     if (searchBtn) {
         searchBtn.addEventListener('click', (e) => {

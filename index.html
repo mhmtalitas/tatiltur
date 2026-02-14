@@ -104,16 +104,50 @@
                                     <i class="fas fa-user-friends"></i>
                                     <input type="text" id="guest-input" placeholder="Kişi Sayısı" value="2 Yetişkin"
                                         readonly style="cursor: pointer; background-color: transparent;">
-                                    <div class="search-dropdown" id="guest-dropdown">
-                                        <ul>
-                                            <li data-value="1 Yetişkin">1 Yetişkin</li>
-                                            <li data-value="2 Yetişkin">2 Yetişkin</li>
-                                            <li data-value="2 Yetişkin, 1 Çocuk">2 Yetişkin, 1 Çocuk</li>
-                                            <li data-value="2 Yetişkin, 2 Çocuk">2 Yetişkin, 2 Çocuk</li>
-                                            <li data-value="3 Yetişkin">3 Yetişkin</li>
-                                            <li data-value="4 Yetişkin">4 Yetişkin</li>
-                                            <li data-value="Grup">Grup</li>
-                                        </ul>
+                                    <div class="search-dropdown pax-picker-dropdown" id="guest-dropdown">
+                                        <div class="pax-picker-row">
+                                            <div class="pax-label">
+                                                <span class="pax-title">Yetişkin</span>
+                                                <span class="pax-desc">+13 Yaş</span>
+                                            </div>
+                                            <div class="pax-controls">
+                                                <button type="button" class="pax-btn btn-minus"
+                                                    data-type="adult">-</button>
+                                                <span class="pax-count" id="guest-count-adult">1</span>
+                                                <button type="button" class="pax-btn btn-plus"
+                                                    data-type="adult">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="pax-picker-row">
+                                            <div class="pax-label">
+                                                <span class="pax-title">Çocuk</span>
+                                                <span class="pax-desc">2-12 Yaş</span>
+                                            </div>
+                                            <div class="pax-controls">
+                                                <button type="button" class="pax-btn btn-minus"
+                                                    data-type="child">-</button>
+                                                <span class="pax-count" id="guest-count-child">0</span>
+                                                <button type="button" class="pax-btn btn-plus"
+                                                    data-type="child">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="pax-picker-row">
+                                            <div class="pax-label">
+                                                <span class="pax-title">Bebek</span>
+                                                <span class="pax-desc">0-2 Yaş</span>
+                                            </div>
+                                            <div class="pax-controls">
+                                                <button type="button" class="pax-btn btn-minus"
+                                                    data-type="baby">-</button>
+                                                <span class="pax-count" id="guest-count-baby">0</span>
+                                                <button type="button" class="pax-btn btn-plus"
+                                                    data-type="baby">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="pax-picker-footer">
+                                            <button type="button" class="btn-pax-confirm"
+                                                id="guest-pax-confirm">Tamam</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
