@@ -70,8 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById("booking-date")) {
         flatpickr("#booking-date", {
             locale: "tr",
-            dateFormat: "d.m.Y",
-            minDate: "today",
+            plugins: [
+                new monthSelectPlugin({
+                    shorthand: false,
+                    dateFormat: "F Y",
+                    altFormat: "F Y",
+                    theme: "light"
+                })
+            ],
+            // minDate: "today" yerine ayın ilk günü veriyoruz ki içinde bulunduğumuz ay seçilebilsin
+            minDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
             disableMobile: true
         });
     }
