@@ -629,26 +629,25 @@ ul {
 /* Intro Section Wrapper for Desktop 100vh Layout */
 @media (min-width: 1024px) {
     .intro-section-wrapper {
-        height: 100vh;
+        height: calc(100vh - 90px);
+        /* Navbar + topbar yüksekliğini düş */
         display: flex;
         flex-direction: column;
         background-color: #fff;
     }
 
     .hero {
-        flex: 1;
-        /* Hero section will take remaining space but we need enough for search widget */
-        min-height: 380px;
+        flex: 1 1 auto;
+        min-height: 280px;
         height: auto;
     }
 
     .campaigns {
-        flex: 1.1;
-        /* Campaigns area shared with hero */
-        padding: 20px 0;
+        flex: 0 0 auto;
+        padding: 15px 0 10px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
     }
 
     .campaigns .container {
@@ -656,24 +655,25 @@ ul {
     }
 
     .section-title {
-        margin-bottom: 15px;
+        margin-bottom: 12px;
+        font-size: 1.5rem;
     }
 
     .campaign-slider {
-        padding: 10px 0;
+        padding: 8px 0;
     }
 
     .campaign-card-modern {
-        /* Height follows screen height to stay within viewport */
-        height: 38vh;
-        width: calc(38vh * 0.75);
-        max-height: 400px;
-        max-width: 300px;
+        height: 30vh;
+        width: calc(30vh * 0.8);
+        max-height: 350px;
+        max-width: 280px;
+        min-height: 200px;
+        min-width: 160px;
     }
 
-    /* Since we use dynamic widths for cards, the slider animation needs to be robust */
     .slider-track {
-        --desktop-card-width: calc(38vh * 0.75);
+        --desktop-card-width: calc(30vh * 0.8);
         --desktop-gap: 20px;
         width: calc((var(--desktop-card-width) * 10) + (var(--desktop-gap) * 9));
         gap: var(--desktop-gap);
