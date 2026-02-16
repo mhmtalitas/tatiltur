@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Büyük İtalya Turu - TatilTur</title>
+    <title>Konaklmalı Tur Detay - TatilTur</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -64,8 +64,6 @@
     </nav>
 
     <!-- Content -->
-
-    <!-- Content -->
     <section class="tour-detail-page">
         <!-- Hero Gallery -->
         <div class="tour-hero-gallery">
@@ -82,76 +80,78 @@
                 <h1 class="tour-main-title" id="tour-title">Tur Adı Yükleniyor...</h1>
 
                 <div class="tour-highlights" id="tour-meta-tags">
-                    <!-- Javascript ile doldurulacak: ✓ Highlight 1  ✓ Highlight 2 -->
+                    <!-- Javascript ile doldurulacak -->
                 </div>
 
-                <div class="tour-section-group">
-                    <h2 class="section-heading">Tur Hakkında</h2>
-                    <p class="tour-description-text" id="tour-description">
-                        Detaylar yükleniyor...
-                    </p>
-                </div>
-
-                <div class="tour-section-group">
-                    <h2 class="section-heading">Tur Detayları</h2>
-
-                    <div class="tour-details-grid">
-                        <!-- Fiyat Bilgileri -->
-                        <div class="detail-block prices">
-                            <div class="price-row">
-                                <span class="label">Yetişkin</span>
-                                <span class="value" id="price-adult">...</span>
-                            </div>
-                            <div class="price-row">
-                                <span class="label">Çocuk (7-12)</span>
-                                <span class="value" id="price-child">...</span>
-                            </div>
-                            <div class="price-row">
-                                <span class="label">Bebek (0-6)</span>
-                                <span class="value" id="price-infant">Ücretsiz</span>
-                            </div>
-                        </div>
-
-                        <!-- Operasyonel Bilgiler -->
-                        <div class="detail-block info">
-                            <div class="info-row">
-                                <span class="label">Tur Süresi:</span>
-                                <span class="value" id="tour-duration">...</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="label">Diller:</span>
-                                <span class="value">Türkçe, İngilizce</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="label">Günler:</span>
-                                <span class="value" id="tour-days">...</span>
-                            </div>
-                        </div>
+                <!-- Tab Navigation -->
+                <div class="tour-detail-tabs">
+                    <div class="tab-nav">
+                        <button class="tab-btn active" data-tab="tur-bilgisi">
+                            <i class="fas fa-info-circle"></i> TUR BİLGİSİ
+                        </button>
+                        <button class="tab-btn" data-tab="tur-plani">
+                            <i class="fas fa-map-marked-alt"></i> TUR PLANI
+                        </button>
                     </div>
                 </div>
 
-                <!-- Dahil / Hariç Bölümü -->
-                <div class="tour-section-group inc-exc-section">
-                    <div class="list-column included-col">
+                <!-- TAB 1: TUR BİLGİSİ -->
+                <div class="tab-panel active" id="panel-tur-bilgisi">
+                    <div class="tour-section-group">
+                        <h2 class="section-heading">Tur Hakkında</h2>
+                        <p class="tour-description-text" id="tour-description">
+                            Detaylar yükleniyor...
+                        </p>
+                    </div>
+
+                    <div class="tour-section-group">
+                        <div class="tour-details-table" id="tour-details-table">
+                            <!-- JS ile doldurulacak -->
+                        </div>
+                    </div>
+
+                    <!-- Önemli Not Bölümü -->
+                    <div class="tour-section-group" id="important-section" style="display:none;">
+                        <div class="tour-details-table">
+                            <div class="detail-table-row">
+                                <div class="detail-table-label"><strong>Önemli</strong></div>
+                                <div class="detail-table-value" id="tour-important"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ücrete Dahil Bölümü -->
+                    <div class="tour-section-group">
                         <h3 class="sub-heading positive">
                             <i class="fas fa-check-circle"></i> Ücrete Dahil
                         </h3>
                         <ul class="expert-list positive-list" id="tour-included"></ul>
                     </div>
-                    <div class="list-column excluded-col">
+
+                    <!-- Ücrete Dahil Değildir(Ekstra) Bölümü -->
+                    <div class="tour-section-group">
                         <h3 class="sub-heading negative">
-                            <i class="fas fa-times-circle"></i> Ücrete Dahil Değil
+                            <i class="fas fa-times-circle"></i> Ücrete Dahil Değildir(Ekstra)
                         </h3>
                         <ul class="expert-list negative-list" id="tour-excluded"></ul>
                     </div>
+
+                    <!-- Ek Bilgiler Bölümü -->
+                    <div class="tour-section-group">
+                        <h3 class="sub-heading neutral-heading">
+                            Ek Bilgiler
+                        </h3>
+                        <ul class="expert-list neutral-list" id="tour-notes"></ul>
+                    </div>
                 </div>
 
-                <!-- Notlar Bölümü -->
-                <!-- Notlar Bölümü -->
-                <div class="tour-section-group">
-                    <h3 class="section-heading">Ek Bilgiler & Önemli Uyarılar</h3>
-                    <div class="notes-box">
-                        <ul class="expert-list neutral-list" id="tour-notes"></ul>
+                <!-- TAB 2: TUR PLANI -->
+                <div class="tab-panel" id="panel-tur-plani" style="display:none;">
+                    <div class="tour-section-group">
+                        <h2 class="section-heading">Gün Gün Tur Programı</h2>
+                        <div class="tour-program-timeline" id="tour-program">
+                            <!-- JS ile doldurulacak -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -250,7 +250,7 @@
                     <div class="trust-indicators">
                         <div class="indicator">
                             <i class="fas fa-undo-alt"></i>
-                            <span>Son 24 saate kadar ücretsiz iptal</span>
+                            <span>Son 7 güne kadar ücretsiz iptal</span>
                         </div>
                         <div class="indicator">
                             <i class="fas fa-bolt"></i>
@@ -263,7 +263,7 @@
                     </div>
 
                     <p class="booking-note">
-                        <i class="fas fa-info-circle"></i> Ödemeyi tur günü rehberimize yapabilirsiniz.
+                        <i class="fas fa-info-circle"></i> Ön ödeme ile yerinizi garantileyin.
                     </p>
                 </div>
             </aside>
@@ -355,19 +355,15 @@
         </div>
     </footer>
 
-    <script src="tours-data.js"></script>
+    <script src="konaklamali-tours-data.js"></script>
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // URL'den ID parametresini al
             const urlParams = new URLSearchParams(window.location.search);
             const tourId = urlParams.get('id');
 
-            // Eğer ID yoksa varsayılan olarak ilk turu göster (Test için)
-            // Canlıya alırken 404 sayfasına yönlendirme yapılabilir.
-            const targetId = tourId ? tourId : (toursData.length > 0 ? toursData[0].id : null);
-
-            const tour = toursData.find(t => t.id === targetId);
+            const targetId = tourId ? tourId : (konaklamaliToursData.length > 0 ? konaklamaliToursData[0].id : null);
+            const tour = konaklamaliToursData.find(t => t.id === targetId);
 
             if (tour) {
                 // Başlık ve Açıklama
@@ -383,16 +379,108 @@
                 });
                 metaContainer.innerHTML = metaHTML;
 
-                // Fiyatlar
-                document.getElementById('price-adult').innerText = `${tour.price.adult} ${tour.price.currency}`;
-                document.getElementById('price-child').innerText = `${tour.price.child} ${tour.price.currency}`;
-                document.getElementById('price-infant').innerText = tour.price.infant === 0 ? 'Ücretsiz' : `${tour.price.infant} ${tour.price.currency}`;
-                document.getElementById('sidebar-price').innerText = `${tour.price.adult} ${tour.price.currency}`;
-                document.getElementById('mobile-price-display').innerText = `${tour.price.adult} ${tour.price.currency}`;
+                // Fiyatlar ve Detaylar Tablosu
+                const detailsTable = document.getElementById('tour-details-table');
+                let tableHTML = '';
 
-                // Detaylar
-                document.getElementById('tour-duration').innerText = tour.duration;
-                document.getElementById('tour-days').innerText = tour.days.join(', ');
+                // Yetişkin
+                const adultLabel = tour.priceLabels ? tour.priceLabels.adult : `${tour.price.adult.toLocaleString('tr-TR')} ${tour.price.currency}`;
+                tableHTML += `<div class="detail-table-row">
+                    <div class="detail-table-label"><strong>Yetişkin</strong></div>
+                    <div class="detail-table-value">${adultLabel}</div>
+                </div>`;
+
+                // Çocuk (4-10)
+                const childLabel = tour.priceLabels ? tour.priceLabels.child : `${tour.price.child.toLocaleString('tr-TR')} ${tour.price.currency}`;
+                tableHTML += `<div class="detail-table-row">
+                    <div class="detail-table-label"><strong>Çocuk (4-10)</strong></div>
+                    <div class="detail-table-value">${childLabel}</div>
+                </div>`;
+
+                // Çocuk (0-4)
+                const infantLabel = tour.priceLabels ? tour.priceLabels.infant : (tour.price.infant === 0 ? 'Ücretsiz' : `${tour.price.infant} ${tour.price.currency}`);
+                tableHTML += `<div class="detail-table-row">
+                    <div class="detail-table-label"><strong>Çocuk (0-4)</strong></div>
+                    <div class="detail-table-value">${infantLabel}</div>
+                </div>`;
+
+                // Single (Tek kişi) Oda
+                if (tour.price.single) {
+                    const singleLabel = tour.priceLabels ? tour.priceLabels.single : `${tour.price.single.toLocaleString('tr-TR')} ${tour.price.currency}`;
+                    tableHTML += `<div class="detail-table-row">
+                        <div class="detail-table-label"><strong>Single (Tek kişi) Oda</strong></div>
+                        <div class="detail-table-value">${singleLabel}</div>
+                    </div>`;
+                }
+
+                // Tur Süresi
+                tableHTML += `<div class="detail-table-row">
+                    <div class="detail-table-label"><strong>Tur Süresi</strong></div>
+                    <div class="detail-table-value">${tour.duration}</div>
+                </div>`;
+
+                // Diller
+                tableHTML += `<div class="detail-table-row">
+                    <div class="detail-table-label"><strong>Diller</strong></div>
+                    <div class="detail-table-value">Türkçe</div>
+                </div>`;
+
+                detailsTable.innerHTML = tableHTML;
+
+                // Sidebar fiyat
+                document.getElementById('sidebar-price').innerText = `${tour.price.adult.toLocaleString('tr-TR')} ${tour.price.currency}`;
+                document.getElementById('mobile-price-display').innerText = `${tour.price.adult.toLocaleString('tr-TR')} ${tour.price.currency}`;
+
+                // Önemli Not
+                if (tour.important) {
+                    document.getElementById('important-section').style.display = 'block';
+                    document.getElementById('tour-important').innerText = tour.important;
+                }
+
+                // Gün Gün Program (Tur Planı tabına)
+                if (tour.program && tour.program.length > 0) {
+                    const programContainer = document.getElementById('tour-program');
+
+                    let programHTML = '';
+                    tour.program.forEach(day => {
+                        programHTML += `
+                            <div class="program-day">
+                                <div class="program-day-marker">
+                                    <div class="day-number">${day.day}</div>
+                                    <div class="day-line"></div>
+                                </div>
+                                <div class="program-day-content">
+                                    <h4 class="program-day-title">${day.title}</h4>
+                                    <p class="program-day-details">${day.details}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    programContainer.innerHTML = programHTML;
+                }
+
+                // Tab Switching
+                const tabBtns = document.querySelectorAll('.tab-btn');
+                tabBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Remove active from all tabs
+                        tabBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        // Hide all panels
+                        document.querySelectorAll('.tab-panel').forEach(panel => {
+                            panel.classList.remove('active');
+                            panel.style.display = 'none';
+                        });
+
+                        // Show selected panel
+                        const targetPanel = document.getElementById('panel-' + btn.dataset.tab);
+                        if (targetPanel) {
+                            targetPanel.classList.add('active');
+                            targetPanel.style.display = 'block';
+                        }
+                    });
+                });
 
                 // Dahil Olanlar
                 const incList = document.getElementById('tour-included');
@@ -421,11 +509,11 @@
                     noteList.appendChild(li);
                 });
 
-                // Galeri (Modern Masonry Grid)
+                // Galeri
                 const gallery = document.getElementById('tour-gallery');
                 if (tour.images.length > 0) {
                     let galleryHTML = '';
-                    const maxVisible = 5; // En fazla 5 resim göster (Desktop)
+                    const maxVisible = 5;
 
                     for (let i = 0; i < tour.images.length; i++) {
                         if (i >= maxVisible) break;
@@ -434,22 +522,18 @@
                         let overlayHTML = '';
                         let badgeHTML = '';
 
-                        // İlk resim büyük
                         if (i === 0) {
                             className = 'gallery-item-modern large';
-                            // Toplam resim sayısını gösteren badge (Tüm görünümlerde ilk resimde)
                             if (tour.images.length > 1) {
                                 badgeHTML = `<div class="photo-count-badge"><i class="fas fa-camera"></i> 1/${tour.images.length}</div>`;
                             }
                         }
 
-                        // Desktop için: 5. resimdeki overlay
                         if (i === maxVisible - 1 && tour.images.length > maxVisible) {
                             const remainingCount = tour.images.length - maxVisible;
                             overlayHTML = `<div class="more-photos-overlay desktop-only">+${remainingCount} Fotoğraf</div>`;
                         }
 
-                        // Mobil için: 3. resimdeki overlay (Mobilde grid 3 resim gösteriyor)
                         if (i === 2 && tour.images.length > 3) {
                             const remainingCount = tour.images.length - 3;
                             overlayHTML = `<div class="more-photos-overlay mobile-only">+${remainingCount}</div>`;
@@ -466,7 +550,6 @@
                     gallery.innerHTML = galleryHTML;
                 }
 
-                // WhatsApp Linki Oluşturma (Eski buton için, şimdi form kullanıyoruz)
                 // Form Gönderimi
                 const reservationForm = document.getElementById('reservation-form');
                 if (reservationForm) {
@@ -480,10 +563,9 @@
                         const phone = reservationForm.querySelector('input[name="phone"]').value;
                         const pickup = reservationForm.querySelector('input[name="pickup"]').value;
 
-                        const message = `Merhaba, Rezervasyon talebim var:\n\nTur: ${tour.title}\nAd Soyad: ${fullname}\nTarih: ${date}\nKişi Sayısı: ${pax}\nKonaklama: ${pickup}\nE-posta: ${email}\nTelefon: ${phone}`;
+                        const message = `Merhaba, Konaklmalı Tur Rezervasyon talebim var:\n\nTur: ${tour.title}\nAd Soyad: ${fullname}\nTarih: ${date}\nKişi Sayısı: ${pax}\nKonaklama: ${pickup}\nE-posta: ${email}\nTelefon: ${phone}`;
 
-                        // WhatsApp'a yönlendir (Profesyonel bir yöntem: Form verilerini WhatsApp'a aktarmak)
-                        const waNumber = "905555555555"; // Buraya kendi numaranızı yazın
+                        const waNumber = "905555555555";
                         const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
 
                         window.open(waLink, '_blank');
@@ -508,7 +590,6 @@
     </div>
 
     <script>
-        // Global variables for lightbox
         let currentImageIndex = 0;
         let currentTourImages = [];
 
@@ -516,28 +597,27 @@
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
 
-            // Get current tour data from global usage or re-fetch
             const urlParams = new URLSearchParams(window.location.search);
             const tourId = urlParams.get('id');
-            const targetId = tourId ? tourId : (typeof toursData !== 'undefined' && toursData.length > 0 ? toursData[0].id : null);
+            const targetId = tourId ? tourId : (typeof konaklamaliToursData !== 'undefined' && konaklamaliToursData.length > 0 ? konaklamaliToursData[0].id : null);
 
-            if (typeof toursData === 'undefined') return;
+            if (typeof konaklamaliToursData === 'undefined') return;
 
-            const tour = toursData.find(t => t.id === targetId);
+            const tour = konaklamaliToursData.find(t => t.id === targetId);
 
             if (tour && tour.images.length > 0) {
                 currentTourImages = tour.images;
                 currentImageIndex = index;
                 lightboxImg.src = currentTourImages[currentImageIndex];
                 lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                document.body.style.overflow = 'hidden';
             }
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
 
         function changeImage(direction) {
@@ -555,14 +635,12 @@
             lightboxImg.src = currentTourImages[currentImageIndex];
         }
 
-        // Close on outside click
         document.getElementById('lightbox').addEventListener('click', (e) => {
             if (e.target.id === 'lightbox') {
                 closeLightbox();
             }
         });
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             const lightbox = document.getElementById('lightbox');
             if (!lightbox.classList.contains('active')) return;
@@ -571,8 +649,6 @@
             if (e.key === 'ArrowRight') changeImage(1);
             if (e.key === 'ArrowLeft') changeImage(-1);
         });
-
-
     </script>
     <!-- Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

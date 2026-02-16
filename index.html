@@ -48,7 +48,7 @@
                 <ul class="nav-links">
                     <li class="nav-item"><a href="index.html">ANA SAYFA</a></li>
                     <li class="nav-item">
-                        <a href="tours.html">TÜM TURLAR <i class="fas fa-chevron-down"></i></a>
+                        <a href="tours.html">GÜNÜBİRLİK TURLAR <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="tours.html?category=Macera">Macera & Safari</a></li>
                             <li><a href="tours.html?category=Tekne">Tekne & Deniz</a></li>
@@ -57,6 +57,7 @@
                             <li><a href="tours.html?category=Kültür">Kültür & Aile</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item"><a href="konaklamali-turlar.html">KONAKLAMALI TURLAR</a></li>
                     <li class="nav-item"><a href="contact.html">İLETİŞİM</a></li>
                     <li class="nav-item mobile-phone-link"><a href="tel:+905317079444"><i class="fas fa-phone-alt"></i>
                             +90
@@ -357,6 +358,15 @@
                         <p>Tarih ve eğlence</p>
                     </div>
                 </a>
+                <!-- Medium Item: Konaklamalı Turlar -->
+                <a href="konaklamali-turlar.html" class="destination-item medium">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Konaklamalı Turlar">
+                    <div class="dest-overlay">
+                        <h3>Konaklamalı Turlar</h3>
+                        <p>Yurt içi kültür turları</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -496,47 +506,73 @@
 
     <script src="script.js"></script>
     <script src="tours-data.js"></script>
+    <script src="konaklamali-tours-data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const grid = document.getElementById('popular-tours-grid');
             if (grid && typeof toursData !== 'undefined') {
-                // Sadece ilk 9 turu al
-                const popularTours = toursData.slice(0, 9);
+                // Rafting turunu çıkar, yerine Doğu Karadeniz Turu ekle
+                const filteredTours = toursData.filter(t => t.id !== 'rafting-turu').slice(0, 8);
 
-                popularTours.forEach(tour => {
-                    const card = document.createElement('div');
-                    card.className = 'tour-card';
-                    card.innerHTML = `
-                        <div class="tour-img">
-                            <span class="tour-tag">${tour.id === 'deniz-yoluyla-alanya' ? 'Popüler' : 'Fırsat'}</span>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                            <img src="${tour.images[0]}" alt="${tour.title}">
-                            <div class="tour-overlay-gradient"></div>
-                        </div>
-                        <div class="tour-content">
-                            <div class="tour-header">
-                                <h3 class="tour-title">${tour.title}</h3>
-                                <div class="tour-rating">
-                                    <i class="fas fa-star"></i> 4.9
-                                </div>
-                            </div>
-                            <div class="tour-meta">
-                                <span><i class="far fa-clock"></i> ${tour.duration}</span>
-                                <span><i class="fas fa-map-marker-alt"></i> ${tour.location}</span>
-                            </div>
-                            <div class="tour-footer">
-                                <div class="price-box">
-                                    <span class="start-from">Kişi başı</span>
-                                    <div class="price-row">
-                                        <span class="current-price" style="font-size: 1.2rem;">${tour.price.adult} ${tour.price.currency}</span>
-                                    </div>
-                                </div>
-                                <a href="tour-detail.html?id=${tour.id}" class="btn-detail">İncele <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(card);
+                // Doğu Karadeniz Turu'nu konaklamalı turlar verisinden bul
+                let karadenizTour = null;
+                if (typeof konaklamaliToursData !== 'undefined') {
+                    karadenizTour = konaklamaliToursData.find(t => t.id === 'dogu-karadeniz-turu');
+                }
+
+                // İlk 2 günübirlik tur kartını ekle
+                filteredTours.slice(0, 2).forEach(tour => {
+                    grid.appendChild(createTourCard(tour, false));
                 });
+
+                // Doğu Karadeniz Turu kartını 3. sıraya ekle
+                if (karadenizTour) {
+                    grid.appendChild(createTourCard(karadenizTour, true));
+                }
+
+                // Geri kalan günübirlik turları ekle
+                filteredTours.slice(2).forEach(tour => {
+                    grid.appendChild(createTourCard(tour, false));
+                });
+            }
+
+            function createTourCard(tour, isKonaklamali) {
+                const card = document.createElement('div');
+                card.className = 'tour-card';
+                const detailLink = isKonaklamali
+                    ? `konaklamali-tour-detail.html?id=${tour.id}`
+                    : `tour-detail.html?id=${tour.id}`;
+                const tagText = isKonaklamali ? 'Konaklamalı' : (tour.id === 'deniz-yoluyla-alanya' ? 'Popüler' : 'Fırsat');
+                card.innerHTML = `
+                    <div class="tour-img">
+                        <span class="tour-tag">${tagText}</span>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <img src="${tour.images[0]}" alt="${tour.title}">
+                        <div class="tour-overlay-gradient"></div>
+                    </div>
+                    <div class="tour-content">
+                        <div class="tour-header">
+                            <h3 class="tour-title">${tour.title}</h3>
+                            <div class="tour-rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                        </div>
+                        <div class="tour-meta">
+                            <span><i class="far fa-clock"></i> ${tour.duration}</span>
+                            <span><i class="fas fa-map-marker-alt"></i> ${tour.location}</span>
+                        </div>
+                        <div class="tour-footer">
+                            <div class="price-box">
+                                <span class="start-from">Kişi başı</span>
+                                <div class="price-row">
+                                    <span class="current-price" style="font-size: 1.2rem;">${tour.price.adult} ${tour.price.currency}</span>
+                                </div>
+                            </div>
+                            <a href="${detailLink}" class="btn-detail">İncele <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                `;
+                return card;
             }
         });
     </script>
