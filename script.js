@@ -202,9 +202,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const guestInputEl = document.getElementById('guest-input');
 
             const params = new URLSearchParams();
+            let targetPage = 'tours.html';
 
             if (locationInput && locationInput.value.trim() !== "") {
-                params.append('search', locationInput.value.trim());
+                const val = locationInput.value.trim();
+                if (val === "Konaklamalı Turlar") {
+                    targetPage = "konaklamali-turlar.html";
+                } else {
+                    params.append('search', val);
+                }
             }
 
             if (dateInput && dateInput.value.trim() !== "") {
@@ -215,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 params.append('guests', guestInputEl.value.trim());
             }
 
-            window.location.href = `tours.html?${params.toString()}`;
+            window.location.href = `${targetPage}?${params.toString()}`;
         });
     }
 });
