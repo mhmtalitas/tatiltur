@@ -630,60 +630,74 @@ ul {
 }
 
 /* Intro Section Wrapper for Desktop 100vh Layout */
+/* Intro Section Wrapper for Desktop 100vh Layout */
 @media (min-width: 1024px) {
     .intro-section-wrapper {
         height: calc(100vh - 90px);
-        /* Navbar + topbar yüksekliğini düş */
+        min-height: 600px;
+        /* Çok kısa ekranlarda patlamasın */
         display: flex;
         flex-direction: column;
         background-color: #fff;
+        overflow: hidden;
+        /* Taşmaları önle */
     }
 
     .hero {
         flex: 1 1 auto;
-        min-height: 280px;
+        /* Esnek ol, gerekirse küçül */
+        min-height: unset;
+        /* Min-height'i kaldır, flex yönetsin */
         height: auto;
+        display: flex;
+        align-items: center;
+        /* Widget'ı dikey ortala */
+    }
+
+    /* Widget'ı biraz küçült */
+    .hero .search-widget {
+        transform: scale(0.9);
+        transform-origin: center;
     }
 
     .campaigns {
         flex: 0 0 auto;
-        padding: 0 0 10px 0;
-        /* Padding'i kaldır, slider tam ekran olsun */
+        padding: 0 0 2vh 0;
+        /* Alt boşluğu yüzdelik yap */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        background: #fff;
     }
 
     .campaigns .container {
         width: 100%;
-        padding-top: 15px;
-        /* Başlık için üst boşluk */
+        padding-top: 1vh;
     }
 
     .section-title {
-        margin-bottom: 12px;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        margin-bottom: 1vh;
+        margin-top: 1vh;
         padding-left: 20px;
-        /* Mobil container padding ile uyumlu olsun */
     }
 
     .campaign-slider {
-        padding: 8px 0;
+        padding: 5px 0;
         width: 100%;
         overflow: hidden;
     }
 
     .campaign-card-modern {
-        height: 30vh;
-        width: calc(30vh * 0.8);
-        max-height: 350px;
-        max-width: 280px;
-        min-height: 200px;
-        min-width: 160px;
+        height: 28vh;
+        /* Yüksekliği ekran oranına bağla */
+        width: calc(28vh * 0.75);
+        max-height: 320px;
+        min-height: 180px;
     }
 
     .slider-track {
-        --desktop-card-width: calc(30vh * 0.8);
+        --desktop-card-width: calc(28vh * 0.75);
         --desktop-gap: 20px;
         width: max-content;
         /* İçeriğe göre otomatik genişle */
@@ -701,6 +715,35 @@ ul {
         100% {
             transform: translateX(calc(-1 * (var(--desktop-card-width) * 5 + var(--desktop-gap) * 5)));
         }
+    }
+}
+
+/* Küçük Laptoplar / MacBook Air (max-height: 800px) için Ekstra Sıkıştırma */
+@media (min-width: 1024px) and (max-height: 800px) {
+    .intro-section-wrapper {
+        height: calc(100vh - 80px);
+    }
+
+    .hero .search-widget {
+        transform: scale(0.85);
+        /* Widget'ı daha da küçült */
+        margin-bottom: -20px;
+        /* Alt boşluğu al */
+    }
+
+    .campaign-card-modern {
+        height: 25vh;
+        /* Kartları daha da küçült */
+        width: calc(25vh * 0.75);
+    }
+
+    .slider-track {
+        --desktop-card-width: calc(25vh * 0.75);
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
     }
 }
 
