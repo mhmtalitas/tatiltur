@@ -640,40 +640,53 @@ ul {
     }
 
     .hero {
-        flex: 1 1 auto;
-        min-height: 265px;
+        flex: 0 0 48vh;
+        /* Yüksekliği sabitle: Ekranın %48'i (Nav hariç) */
+        min-height: 300px;
+        /* Çok küçük ekranlar için güvenlik */
         height: auto;
     }
 
     .campaigns {
-        flex: 0 0 auto;
-        padding: 0 0 10px 0;
+        flex: 1 1 auto;
+        /* Kalan alanı kapla */
+        padding: 0;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        /* İçeriği yukarı yasla (Hero'ya yapışsın) */
+    }
+
+    /* Beyaz geçiş efektini incelt */
+    .hero::after {
+        height: 60px;
+        /* 120px'den düşürüldü, daha az yer kaplasın */
     }
 
     .campaigns .container {
         width: 100%;
-        padding-top: 10px;
+        padding-top: 5px;
+        margin-bottom: 5px;
     }
 
     .section-title {
         margin-bottom: 10px;
         font-size: 1.5rem;
         padding-left: 20px;
-        margin-top: 20px;
+        margin-top: 5px;
+        /* Başlık üstü boşluk minimize edildi */
     }
 
     .campaign-slider {
-        padding: 5px 0;
+        padding: 0;
         width: 100%;
         overflow: hidden;
     }
 
     .campaign-card-modern {
-        height: 28.5vh;
-        width: calc(28.5vh * 0.8);
+        height: 28vh;
+        /* Sabit oran */
+        width: calc(28vh * 0.8);
         max-height: 380px;
         max-width: 290px;
         min-height: 190px;
@@ -681,7 +694,7 @@ ul {
     }
 
     .slider-track {
-        --desktop-card-width: calc(28.5vh * 0.8);
+        --desktop-card-width: calc(28vh * 0.8);
         --desktop-gap: 20px;
         width: max-content;
         /* İçeriğe göre otomatik genişle */
