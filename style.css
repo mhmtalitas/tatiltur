@@ -2653,7 +2653,7 @@ footer {
 .booking-card {
     background: var(--white);
     border: 1px solid #eef0f2;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
     position: sticky;
@@ -3923,7 +3923,7 @@ footer {
 
 .map-container-pro {
     position: relative;
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -3954,7 +3954,7 @@ footer {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 20px 24px;
     display: flex;
     align-items: center;
@@ -3971,7 +3971,7 @@ footer {
 .location-card-icon {
     width: 48px;
     height: 48px;
-    border-radius: 12px;
+    border-radius: 8px;
     background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
     display: flex;
     align-items: center;
@@ -4037,7 +4037,7 @@ footer {
         position: relative;
         bottom: auto;
         left: auto;
-        border-radius: 0 0 16px 16px;
+        border-radius: 0 0 8px 8px;
         flex-wrap: wrap;
         gap: 12px;
     }
@@ -4290,7 +4290,7 @@ footer {
 .feature-item {
     background: #fff;
     padding: 35px 25px;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     border: 1px solid #f0f0f0;
