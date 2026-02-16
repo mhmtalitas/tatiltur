@@ -551,24 +551,41 @@
                 }
 
                 // Form Gönderimi
+                // Form Gönderimi (Rezervasyon Sayfasına Yönlendirme)
                 const reservationForm = document.getElementById('reservation-form');
                 if (reservationForm) {
                     reservationForm.addEventListener('submit', (e) => {
                         e.preventDefault();
+                        e.stopPropagation();
+                        console.log("Konaklamalı Rezervasyon sistemi devreye girdi - WhatsApp iptal edildi.");
 
                         const fullname = reservationForm.querySelector('input[name="fullname"]').value;
                         const date = reservationForm.querySelector('input[name="date"]').value;
-                        const pax = reservationForm.querySelector('input[name="pax"]').value;
+                        const pax = parseInt(reservationForm.querySelector('input[name="pax"]').value) || 1;
                         const email = reservationForm.querySelector('input[name="email"]').value;
                         const phone = reservationForm.querySelector('input[name="phone"]').value;
                         const pickup = reservationForm.querySelector('input[name="pickup"]').value;
 
-                        const message = `Merhaba, Konaklmalı Tur Rezervasyon talebim var:\n\nTur: ${tour.title}\nAd Soyad: ${fullname}\nTarih: ${date}\nKişi Sayısı: ${pax}\nKonaklama: ${pickup}\nE-posta: ${email}\nTelefon: ${phone}`;
+                        // URL Parametreleri Oluştur
+                        const params = new URLSearchParams({
+                            tourId: tour.id,
+                            title: tour.title,
+                            date: date,
+                            adults: pax,
+                            children: 0,
+                            babies: 0,
+                            priceAdult: tour.price.adult,
+                            priceChild: tour.price.child,
+                            image: tour.images[0],
+                            location: tour.location,
+                            fullname: fullname,
+                            email: email,
+                            phone: phone,
+                            note: `Alınış Yeri: ${pickup}`
+                        });
 
-                        const waNumber = "905555555555";
-                        const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-
-                        window.open(waLink, '_blank');
+                        // Yönlendir
+                        window.location.href = `reservation.html?${params.toString()}`;
                     });
                 }
 
