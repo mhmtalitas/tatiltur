@@ -640,61 +640,50 @@ ul {
     }
 
     .hero {
-        flex: 0 0 48vh;
-        /* Yüksekliği sabitle: Ekranın %48'i (Nav hariç) */
-        min-height: 300px;
-        /* Çok küçük ekranlar için güvenlik */
+        flex: 1 1 auto;
+        min-height: 280px;
         height: auto;
     }
 
     .campaigns {
-        flex: 1 1 auto;
-        /* Kalan alanı kapla */
-        padding: 0;
+        flex: 0 0 auto;
+        padding: 0 0 10px 0;
+        /* Padding'i kaldır, slider tam ekran olsun */
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        /* İçeriği yukarı yasla (Hero'ya yapışsın) */
-    }
-
-    /* Beyaz geçiş efektini incelt */
-    .hero::after {
-        height: 60px;
-        /* 120px'den düşürüldü, daha az yer kaplasın */
+        justify-content: flex-end;
     }
 
     .campaigns .container {
         width: 100%;
-        padding-top: 5px;
-        margin-bottom: 5px;
+        padding-top: 15px;
+        /* Başlık için üst boşluk */
     }
 
     .section-title {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         font-size: 1.5rem;
         padding-left: 20px;
-        margin-top: 5px;
-        /* Başlık üstü boşluk minimize edildi */
+        /* Mobil container padding ile uyumlu olsun */
     }
 
     .campaign-slider {
-        padding: 0;
+        padding: 8px 0;
         width: 100%;
         overflow: hidden;
     }
 
     .campaign-card-modern {
-        height: 28vh;
-        /* Sabit oran */
-        width: calc(28vh * 0.8);
-        max-height: 380px;
-        max-width: 290px;
-        min-height: 190px;
-        min-width: 155px;
+        height: 30vh;
+        width: calc(30vh * 0.8);
+        max-height: 350px;
+        max-width: 280px;
+        min-height: 200px;
+        min-width: 160px;
     }
 
     .slider-track {
-        --desktop-card-width: calc(28vh * 0.8);
+        --desktop-card-width: calc(30vh * 0.8);
         --desktop-gap: 20px;
         width: max-content;
         /* İçeriğe göre otomatik genişle */
