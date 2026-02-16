@@ -555,15 +555,12 @@ ul {
 
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 
     100% {
-        transform: translateX(calc(-1 * (300px * 5 + 20px * 5)));
-        /* 5 kart + 5 boşluk kadar kay */
+        transform: translate3d(calc(-1 * (300px * 5 + 20px * 5)), 0, 0);
     }
-
-    /* 5 kartın genişliği + boşluklar kadar kay */
 }
 
 .campaign-card-modern {
@@ -712,17 +709,17 @@ ul {
         --desktop-gap: 16px;
         width: max-content;
         gap: var(--desktop-gap);
-        animation: scroll-desktop 50s linear infinite;
+        animation: scroll-desktop 30s linear infinite;
         will-change: transform;
     }
 
     @keyframes scroll-desktop {
         0% {
-            transform: translateX(0);
+            transform: translate3d(0, 0, 0);
         }
 
         100% {
-            transform: translateX(calc(-1 * (var(--desktop-card-width) * 5 + var(--desktop-gap) * 5)));
+            transform: translate3d(calc(-1 * (var(--desktop-card-width) * 5 + var(--desktop-gap) * 5)), 0, 0);
         }
     }
 
