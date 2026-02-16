@@ -641,8 +641,7 @@ ul {
 
     .hero {
         flex: 1 1 auto;
-        min-height: 250px;
-        /* Chrome için daha esnek */
+        min-height: 265px;
         height: auto;
     }
 
@@ -656,14 +655,14 @@ ul {
 
     .campaigns .container {
         width: 100%;
-        padding-top: 5px;
-        /* Başlık üstü boşluk azaltıldı */
+        padding-top: 10px;
     }
 
     .section-title {
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         font-size: 1.5rem;
         padding-left: 20px;
+        margin-top: 20px;
     }
 
     .campaign-slider {
@@ -673,17 +672,16 @@ ul {
     }
 
     .campaign-card-modern {
-        height: 26vh;
-        /* Chrome bookmark bar payı */
-        width: calc(26vh * 0.8);
-        max-height: 350px;
-        max-width: 280px;
-        min-height: 180px;
-        min-width: 150px;
+        height: 28.5vh;
+        width: calc(28.5vh * 0.8);
+        max-height: 380px;
+        max-width: 290px;
+        min-height: 190px;
+        min-width: 155px;
     }
 
     .slider-track {
-        --desktop-card-width: calc(26vh * 0.8);
+        --desktop-card-width: calc(28.5vh * 0.8);
         --desktop-gap: 20px;
         width: max-content;
         /* İçeriğe göre otomatik genişle */
