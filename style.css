@@ -514,9 +514,9 @@ ul {
 
 /* Campaigns Section & Slider */
 .campaigns {
-    padding: 50px 0;
+    padding: 0 0 50px 0;
+    /* Mobilde de tam ekran slider */
     overflow: hidden;
-    /* Taşmayı gizle */
 }
 
 .section-title {
@@ -526,19 +526,21 @@ ul {
     color: #222;
     padding-left: 20px;
     border-left: 5px solid var(--primary-color);
+    margin-top: 50px;
+    /* Başlık için üst boşluk */
 }
 
 .campaign-slider {
     width: 100%;
     position: relative;
     padding: 20px 0;
-    /* Gölgeler kesilmesin diye */
+    overflow: hidden;
 }
 
 .slider-track {
     display: flex;
-    width: calc(300px * 10 + 200px);
-    /* Tahmini genişlik: (Kart genişliği * kart sayısı) + boşluklar */
+    width: max-content;
+    /* Kart sayısına göre otomatik genişle */
     animation: scroll 40s linear infinite;
     gap: 20px;
 }
@@ -554,7 +556,8 @@ ul {
     }
 
     100% {
-        transform: translateX(calc(-300px * 5 - 100px));
+        transform: translateX(calc(-1 * (300px * 5 + 20px * 5)));
+        /* 5 kart + 5 boşluk kadar kay */
     }
 
     /* 5 kartın genişliği + boşluklar kadar kay */
@@ -644,7 +647,8 @@ ul {
 
     .campaigns {
         flex: 0 0 auto;
-        padding: 15px 0 10px;
+        padding: 0 0 10px 0;
+        /* Padding'i kaldır, slider tam ekran olsun */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -652,15 +656,21 @@ ul {
 
     .campaigns .container {
         width: 100%;
+        padding-top: 15px;
+        /* Başlık için üst boşluk */
     }
 
     .section-title {
         margin-bottom: 12px;
         font-size: 1.5rem;
+        padding-left: 20px;
+        /* Mobil container padding ile uyumlu olsun */
     }
 
     .campaign-slider {
         padding: 8px 0;
+        width: 100%;
+        overflow: hidden;
     }
 
     .campaign-card-modern {
@@ -675,9 +685,12 @@ ul {
     .slider-track {
         --desktop-card-width: calc(30vh * 0.8);
         --desktop-gap: 20px;
-        width: calc((var(--desktop-card-width) * 10) + (var(--desktop-gap) * 9));
+        width: max-content;
+        /* İçeriğe göre otomatik genişle */
         gap: var(--desktop-gap);
-        animation: scroll-desktop 40s linear infinite;
+        animation: scroll-desktop 50s linear infinite;
+        will-change: transform;
+        /* GPU hızlandırma için */
     }
 
     @keyframes scroll-desktop {
