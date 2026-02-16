@@ -629,11 +629,13 @@ ul {
 /* Intro Section Wrapper for Desktop 100vh Layout */
 @media (min-width: 1024px) {
     .intro-section-wrapper {
-        height: calc(100vh - 90px);
-        /* Navbar + topbar yüksekliğini düş */
+        height: calc(100vh - 88px);
+        /* 90px yerine 88px yaparak ekranı tam doldurmasını sağlıyoruz */
         display: flex;
         flex-direction: column;
         background-color: #fff;
+        overflow: hidden;
+        /* Alttan sızıntı olmaması için */
     }
 
     .hero {
