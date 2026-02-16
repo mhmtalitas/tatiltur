@@ -15,11 +15,14 @@ const konaklamaliToursData = [
         days: ["Belirli Günler"],
         description: "Her ne kadar karadeniz trakya kıyılarından başlasa da her mevsimde yeşilin mavi ile muhteşem ahengini gözlemleyebileceğimiz doğu karadeniz bölgesinde muhteşem ve unutulmaz bir tatil bizleri bekliyor. Alanya'dan hareket ederek Amasya,Samsun,Ordu,Giresun, ve Trabzonu geçerek Rize'ye ulaşıp muhteşem karadeniz doğasında oksijenden başımız dönerken, karadeniz mutfağının lezzetli yemeklerini yerken adeta deyim yerindeyse bu zengin mutfağın lezzetleri damağımızı çatlatacak. Elbette tarihi ve sanat eseri olan el işleri karşısında hayretlerimizi gizleyemeyeceğiz. Tüm bu güzellikleri görmek ve tatmak için sizleri doğu karadeniz turlarımıza bekliyoruz.",
         images: [
-            "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=80",
-            "https://images.unsplash.com/photo-1571406252241-db0280be0609?w=800&q=80",
-            "https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?w=800&q=80",
-            "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
-            "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz 2.jpg",
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz 1.jpg",
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz 3.jpg",
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz 4.jpg",
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz 5.jpg",
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz 6.jpg",
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz 7.jpg",
+            "assets/images/tours/dogu-karadeniz-turu/dogu karadeniz.jpg"
         ],
         highlights: ["7 Gün", "Belirli Günler", "Sahil, Gezi, Doğa, Rehberli Turlar"],
         important: "Not: Programda belirtilen gezilecek yerlerin sırasında veya gününde mücbir sebeplerden dolayı (hava, yol, ziyaret yeri yoğunluğu vb) rehberimiz gerekli gördüğü takdirde değişiklik yapma hakkına sahiptir. Katılımcıdan (misafirlerimiz) kaynaklanan gecikme ve zamana uyulmamasından dolayı programda yazılı olduğu halde gezilemeyen yerlerden acentemiz ve rehberimiz sorumlu değildir.",
@@ -97,11 +100,15 @@ const konaklamaliToursData = [
         days: ["Belirli Günler"],
         description: "· Mardin ve Hasankeyf · Gaziantep Bakırcılar çarşısı · Mozaik müzeleri arasında en prestijlerinden olan Hatay ve Gaziantep Zeugma müzeleri · Halfeti · Sıra Gecesi · Nemrut da güneşin batışı · Ve niceleri Sizin için hazırladığımız bu zengin programla size düşündüğünüzden daha fazlasını vaad ediyoruz. Güneydoğu'yu yani dünyaca bilinen adıyla medeniyetin beşiği Mezopotamya'yı beraber keşfetmeye davetlisiniz.",
         images: [
-            "https://images.unsplash.com/photo-1589561084283-930aa7b1ce50?w=800&q=80",
-            "https://images.unsplash.com/photo-1570939274717-7eda259b50ed?w=800&q=80",
-            "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80",
-            "https://images.unsplash.com/photo-1562679299-39976a1d5f6c?w=800&q=80",
-            "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=800&q=80"
+            "assets/images/tours/gap-turu/gap-1.jpeg",
+            "assets/images/tours/gap-turu/gap-2.jpeg",
+            "assets/images/tours/gap-turu/gap-3.jpeg",
+            "assets/images/tours/gap-turu/gap-4.jpeg",
+            "assets/images/tours/gap-turu/gap-5.jpeg",
+            "assets/images/tours/gap-turu/gap-6.jpeg",
+            "assets/images/tours/gap-turu/gap-7.jpeg",
+            "assets/images/tours/gap-turu/gap-8.jpeg",
+            "assets/images/tours/gap-turu/gap-9.jpeg"
         ],
         highlights: ["7 Gün", "Belirli Günler", "Gezi, Doğa, Rehberli Turlar"],
         important: "Not: Programda belirtilen gezilecek yerlerin sırasında veya gününde mücbir sebeplerden dolayı (hava, yol, ziyaret yeri yoğunluğu vb) rehberimiz gerekli gördüğü takdirde değişiklik yapma hakkına sahiptir. Katılımcıdan (misafirlerimiz) kaynaklanan gecikme ve zamana uyulmamasından dolayı programda yazılı olduğu halde gezilemeyen yerlerden acentemiz ve rehberimiz sorumlu değildir.",
